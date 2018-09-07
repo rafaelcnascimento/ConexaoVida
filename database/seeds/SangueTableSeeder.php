@@ -12,7 +12,7 @@ class SangueTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tipos_sanquineos')->insert([
+        DB::table('tipos_sanguineos')->insert([
             [ 'nome' => 'O+' ],
             [ 'nome' => 'O-' ],
             [ 'nome' => 'A+' ],

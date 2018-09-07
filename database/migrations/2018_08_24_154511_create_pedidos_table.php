@@ -22,7 +22,7 @@ class CreatePedidosTable extends Migration
             $table->unsignedInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedInteger('tipo_sanguineo_id');
-            $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanquineos');
+            $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
             $table->timestamps();
         });
     }
