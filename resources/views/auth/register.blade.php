@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome Completo') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nome" type="text" class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" value="{{ old('nome') }}" required autofocus>
@@ -31,8 +31,8 @@
                             <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('genero') ? ' is-invalid' : '' }}" id="genero"  name="genero" required>
                                     <option selected="" disabled="">Selecione</option>
-                                    <option value="feminimo">Feminino</option>
-                                    <option value="masculino">Masculino</option>
+                                    <option value="feminimo" {{ (old('genero') == "feminimo" ? "selected":"") }}>Feminino</option>
+                                    <option value="masculino" {{ (old('genero') == "masculino" ? "selected":"") }}>Masculino</option>
                                 </select>
 
                                 @if ($errors->has('genero'))
@@ -50,7 +50,7 @@
                                 <select class="form-control{{ $errors->has('tipo_sanguineo_id') ? ' is-invalid' : '' }}" id="tipo_sanguineo_id"  name="tipo_sanguineo_id" required>
                                     <option selected="" disabled="">Selecione</option>
                                     @foreach ($tipos_sanguineos as $tipo)
-                                        <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
+                                        <option value="{{$tipo->id}}" {{ (old('tipo_sanguineo_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
                                     @endforeach
                                 </select>
 
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="telefone" class="col-md-4 col-form-label text-md-right">{{ __('Telefone') }}</label>
+                            <label for="telefone" class="col-md-4 col-form-label text-md-right">{{ __('Telefone com DDD') }}</label>
 
                             <div class="col-md-6">
                                 <input id="telefone" type="text" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" name="telefone" value="{{ old('telefone') }}" required>
@@ -105,13 +105,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="estado_id_id" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+                            <label for="estado_id" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('estado_id') ? ' is-invalid' : '' }}" id="tipo_sanguineo_id"  name="estado_id" required>
+                                <select class="form-control{{ $errors->has('estado_id') ? ' is-invalid' : '' }}" id="estado_id"  name="estado_id" required>
                                     <option selected="" disabled="">Selecione</option>
                                     @foreach ($estados as $estado)
-                                        <option value="{{$estado->id}}">{{$estado->sigla}}}</option>
+                                        <option value="{{$estado->id}}" {{ (old('estado_id') == $estado->id ? "selected":"") }}>{{$estado->sigla}}</option>
                                     @endforeach
                                 </select>
 
