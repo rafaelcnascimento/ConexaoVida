@@ -19,7 +19,7 @@ class CreatePedidosTable extends Migration
             $table->string('hospital');
             $table->string('endereco_hospital');
             $table->string('cidade');
-            $table->unsignedInteger('estado_id');
+            $table->unsignedInteger('estado_id')->default(23);
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedInteger('tipo_sanguineo_id');
             $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
