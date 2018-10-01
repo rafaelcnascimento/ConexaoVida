@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,11 +35,17 @@ class UsersController extends Controller
             'senha' => 'required|string|min:6|confirmed',
         ]);
 
-        $request->senha = Hash::make($request->senha);
-
-        $request->offsetUnset('senha-confirm');
-
-        User::create($request->all());
+        User::create([
+                    'nome' => $request->nome,
+                    'genero' => $request->genero,
+                    'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
+                    'email' => $request->email,
+                    'telefone' => $request->telefone,
+                    'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+                    'cidade' => $request->cidade,
+                    // 'estado_id' => $request->estado_id,
+                    'senha' => Hash::make($request->senha)
+                ]);
 
         return redirect('/login');
     }
