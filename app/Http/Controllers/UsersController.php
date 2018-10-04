@@ -32,7 +32,7 @@ class UsersController extends Controller
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
             'ultima_doacao' => 'date_format:"d/m/Y"',
-            'senha' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         User::create([
@@ -44,7 +44,7 @@ class UsersController extends Controller
                     'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
                     'cidade' => $request->cidade,
                     // 'estado_id' => $request->estado_id,
-                    'senha' => Hash::make($request->senha)
+                    'password' => Hash::make($request->password)
                 ]);
 
         return redirect('/login');

@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('nome');
             $table->string('genero');
             $table->string('email')->unique();
-            $table->string('senha');
+            $table->string('password');
             $table->string('telefone');
             $table->string('cidade');
             $table->unsignedInteger('estado_id')->default(23);
