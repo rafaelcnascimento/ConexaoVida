@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/como-funciona', 'HomeController@comoFunciona');
 
 Route::get('/registrar', 'UsersController@create');
 Route::post('/registrar', 'UsersController@store');

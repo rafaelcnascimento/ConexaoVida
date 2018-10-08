@@ -16,14 +16,14 @@
         <header>
             <!-- Fixed navbar -->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #8A0707;height: 80px;">
-                <a class="navbar-brand" href="#"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
+                <a class="navbar-brand" href="/"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="como=funciona">Como funciona</a>
+                            <a class="nav-link" href="/como-funciona">Como funciona</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="registro">Doações</a>
@@ -39,7 +39,7 @@
                     <div class="navbar-nav mt-2 mt-md-0">
                         @if (Auth::check())
                             <li class="nav-item dropdown active" style="left: -100%;">
-                                <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, João</div>
+                                <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
                                <div class="dropdown-menu" aria-labelledby="dropdown01">
                                  <a class="dropdown-item" href="#">Meus dados</a>
                                  <a class="dropdown-item" href="#">Sair</a>

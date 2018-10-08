@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,20 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {    
+        if (Auth::check()) 
+        {
+            return view('homeLogado');
+        } 
+
+        else 
+        {
+            return view('home');
+        }
+    }
+
+    public function comoFunciona()
+    {    
+        return view('home'); 
     }
 }
