@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pedido extends Model
+class Compatibilidade extends Model
 {
-    protected $guarded = [];
+    public $timestamps = false;
 }

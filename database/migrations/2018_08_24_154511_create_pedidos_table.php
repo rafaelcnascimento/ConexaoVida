@@ -17,6 +17,7 @@ class CreatePedidosTable extends Migration
             $table->increments('id');
             $table->string('paciente');
             $table->string('hospital');
+            $table->string('quarto');
             $table->string('endereco_hospital');
             $table->string('cidade');
             $table->unsignedInteger('estado_id')->default(23);

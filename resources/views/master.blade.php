@@ -34,6 +34,11 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="sobre">Sobre</a>
                         </li>
+                        @if (Auth::check())
+                        <li class="nav-item active">
+                            <a class="nav-link" href="doacao-cadastrar">Pedir doação</a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
                     <div class="navbar-nav mt-2 mt-md-0">
