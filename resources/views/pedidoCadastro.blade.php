@@ -8,7 +8,7 @@
             <form method="POST" action="/doacao">
                 @csrf
 
-
+                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
                 <div class="form-group row">
                     <label for="paciente" class="col-md-4 col-form-label text-md-right">{{ __('Nome do Paciente') }}</label>

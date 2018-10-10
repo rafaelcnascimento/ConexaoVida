@@ -21,5 +21,5 @@ Route::post('/doacao', 'PedidosController@store');
 Route::get('/registrar', 'UsersController@create');
 Route::post('/registrar', 'UsersController@store');
 
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');

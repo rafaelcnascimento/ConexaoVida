@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use App\TipoSanguineo;
+use App\Estado;
 
 class PedidosController extends Controller
 {
     public function create()
     {
-        $estados = \App\Estado::all();
+        $estados = Estado::all();
 
-        $tipos_sanguineos = \App\TipoSanguineo::all();
+        $tipos_sanguineos = TipoSanguineo::all();
 
         return view('pedidoCadastro', compact('estados','tipos_sanguineos'));
     }
@@ -26,10 +28,11 @@ class PedidosController extends Controller
             'tipo_sanguineo_id' => 'required|numeric',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
-
         ]);
 
         Pedido::create(request()->all());
+
+        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id);
 
         return redirect('/');
     }
