@@ -3,6 +3,7 @@
 namespace App;
 
 use Auth;
+use DateInterval;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -16,6 +17,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [];
+
+    protected $casts = [
+            'ultima_doacao' => 'datetime',
+        ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -51,6 +56,22 @@ class User extends Authenticatable
         }
 
         return $telefone;
+    }
+
+    public static function getData() 
+    {
+        $data = Auth::user()->ultima_doacao;
+
+        if (!strcmp(Auth::user()->genero, 'masculino')) 
+        {
+            $data->add(new DateInterval('P2M'));
+        }    
+        else 
+        {
+            $data->add(new DateInterval('P4M'));
+        }
+
+        return $data;
     }
 
 }

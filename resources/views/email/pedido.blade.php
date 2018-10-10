@@ -5,7 +5,7 @@
 </head>
 <body style="font-family: 'Muli', sans-serif;">
     <center>
-        <img src="img/logo.png">
+        <img src={{ asset('img/logo.png') }}>
         <h3>Olá, <b>{{$user->getNome()}}</b></h3>
         <p>Alguém precisa do seu sangue</p><br>
         <p><b>Nome do Paciente:</b> {{$pedido->paciente}}</p>
