@@ -8,7 +8,7 @@ class Compatibilidade extends Model
 {
     public $timestamps = false;
 
-    public function doadores()
+    public function sangue()
     {
         return $this->belongsTo('App\TipoSanguineo','doador_id');
     }

@@ -26,7 +26,7 @@
                             <a class="nav-link" href="/como-funciona">Como funciona</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="registro">Doações</a>
+                            <a class="nav-link" href="/doacoes">Doações</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="registro">Baixe o aplicativo</a>
@@ -36,7 +36,7 @@
                         </li>
                         @if (Auth::check())
                         <li class="nav-item active">
-                            <a class="nav-link" href="doacao-cadastrar">Pedir doação</a>
+                            <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
                         </li>
                         @endif
                     </ul>

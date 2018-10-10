@@ -18,4 +18,11 @@ class TipoSanguineo extends Model
 
         return $doadores;
     }
+
+    public function doadores($tipo)
+    {
+        $doadores = Compatibilidade::where('receptor_id',$tipo)->get();
+
+        return $doadores;
+    }
 }

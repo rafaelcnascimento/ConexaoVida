@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/como-funciona', 'HomeController@comoFunciona');
 
 Route::get('/doacoes', 'PedidosController@index');
+Route::get('/doacao/{pedido}', 'PedidosController@show');
 Route::get('/doacao-cadastrar', 'PedidosController@create');
 Route::post('/doacao', 'PedidosController@store');
 
