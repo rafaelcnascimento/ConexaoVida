@@ -13,7 +13,7 @@
         <p><b>Endereço:</b> {{$pedido->endereço}}</p>
         <p><b>Tipo sanguíneo:</b> {{$pedido->sangue->nome}}</p>
         <p><b>Requerente:</b> {{$pedido->requerente->nome}}</p>
-        <p><b>Telefone para contato:</b> {{$pedido->requrente->getFone()}}</p>
+        <p><b>Telefone para contato:</b> {{$pedido->requerente->getFone()}}</p>
     </center>
 </body>
 </html>
