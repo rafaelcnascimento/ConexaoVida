@@ -19,6 +19,8 @@ Route::get('/doacao/{pedido}', 'PedidosController@show');
 Route::get('/doacao-cadastrar', 'PedidosController@create');
 Route::post('/doacao', 'PedidosController@store');
 
+Route::get('/doar', 'UsersController@donate');
+
 Route::get('/registrar', 'UsersController@create');
 Route::post('/registrar', 'UsersController@store');
 

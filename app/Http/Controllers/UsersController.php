@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -50,17 +51,36 @@ class UsersController extends Controller
         return redirect('/login');
     }
 
+    public function donate()
+    {
+        $user = Auth::user();
+
+        $data = $user->getData();
+
+        $hoje = Carbon::now();
+
+        if ($hoje > $data)
+        {
+           $user->update([
+            'ultima_doacao' => $hoje
+            ]);
+        }
+
+        else
+        {
+            echo "nao";
+        }
+
+        return redirect('/');
+        
+    }
+
     //Rotas API
     public function apiCreate()
     {
         $estados = Estado::all();
 
-        $tipos_sanguineos = TipoSanguineo::all();
-
-        return Response::json(array(
-            'estados' => $estados,
-            'tipos_sanguineos' => $tipos_sanguineos
-        ));
+        return response()->json($estados,200);
     }
 
     protected function apiStore(Request $request)
@@ -71,7 +91,8 @@ class UsersController extends Controller
             'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
             'email' => $request->email,
             'telefone' => $request->telefone,
-            'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+            // 'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+            'ultima_doacao' => $request->ultima_doacao,
             'cidade' => $request->cidade,
             // 'estado_id' => $request->estado_id,
             'password' => Hash::make($request->password)
