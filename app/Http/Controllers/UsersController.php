@@ -36,17 +36,47 @@ class UsersController extends Controller
         ]);
 
         User::create([
-                    'nome' => $request->nome,
-                    'genero' => $request->genero,
-                    'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
-                    'email' => $request->email,
-                    'telefone' => $request->telefone,
-                    'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
-                    'cidade' => $request->cidade,
-                    // 'estado_id' => $request->estado_id,
-                    'password' => Hash::make($request->password)
-                ]);
+            'nome' => $request->nome,
+            'genero' => $request->genero,
+            'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
+            'email' => $request->email,
+            'telefone' => $request->telefone,
+            'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+            'cidade' => $request->cidade,
+            // 'estado_id' => $request->estado_id,
+            'password' => Hash::make($request->password)
+        ]);
 
         return redirect('/login');
+    }
+
+    //Rotas API
+    public function apiCreate()
+    {
+        $estados = Estado::all();
+
+        $tipos_sanguineos = TipoSanguineo::all();
+
+        return Response::json(array(
+            'estados' => $estados,
+            'tipos_sanguineos' => $tipos_sanguineos
+        ));
+    }
+
+    protected function apiStore(Request $request)
+    {
+        User::create([
+            'nome' => $request->nome,
+            'genero' => $request->genero,
+            'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
+            'email' => $request->email,
+            'telefone' => $request->telefone,
+            'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+            'cidade' => $request->cidade,
+            // 'estado_id' => $request->estado_id,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return response()->json(201);
     }
 }

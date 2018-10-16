@@ -7,6 +7,7 @@ use App\Pedido;
 use App\TipoSanguineo;
 use App\Estado;
 use Mail;
+use Response;
 use App\Mail\EmailPedido;
 
 class PedidosController extends Controller
@@ -55,4 +56,44 @@ class PedidosController extends Controller
 
         return redirect('/');
     }
+
+    //Rotas da API
+    public function apiIndex()
+    {
+        $pedidos = Pedido::paginate(10);
+        
+        return response()->json($pedidos, 200);
+    }
+
+    public function apiShow(Pedido $pedido)
+    {
+        return response()->json($pedidos, 200);
+    }
+
+    public function apiCreate()
+    {
+        $estados = Estado::all();
+
+        $tipos_sanguineos = TipoSanguineo::all();
+
+        return Response::json(array(
+            'estados' => $estados,
+            'tipos_sanguineos' => $tipos_sanguineos
+        ));
+    }
+
+    public function apiStore(Request $request)
+    {
+        $pedido = Pedido::create(request()->all());
+
+        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id);
+
+        foreach ($doadores as $doador)
+        {
+            Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
+        }
+
+        return response()->json(201);
+    }
+
 }
