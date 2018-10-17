@@ -46,11 +46,7 @@ class PedidosController extends Controller
 
         $pedido = Pedido::create(request()->all());
 
-        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id,$request->check_exclusivo);
-
-        dd($doadores);
-
-        dispatch(new EnviarEmailDoacao($doadores,$pedido));
+        dispatch(new EnviarEmailDoacao($request->check_exclusivo,$pedido));
 
         return redirect('/');
     }

@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use Mail;
 use App\Mail\EmailPedido;
-
+use App\TipoSanguineo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -15,17 +15,17 @@ class EnviarEmailDoacao implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $pedido;
-    public $doadores;
+    protected $pedido;
+    protected $flag;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($doadores,$pedido)
+    public function __construct($flag,$pedido)
     {
-        $this->doadores = $doadores;
+        $this->flag = $flag;
         $this->pedido = $pedido;
     }
 
@@ -36,6 +36,10 @@ class EnviarEmailDoacao implements ShouldQueue
      */
     public function handle()
     {
+        $pedido->tipo_sanguineo_id = 1;
+
+        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$flag);
+
         foreach ($doadores as $doador)
         {
             Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
