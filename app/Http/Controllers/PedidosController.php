@@ -67,7 +67,7 @@ class PedidosController extends Controller
 
     public function apiShow(Pedido $pedido)
     {
-        return response()->json($pedidos, 200);
+        return response()->json($pedido, 200);
     }
 
     public function apiCreate()
@@ -85,8 +85,6 @@ class PedidosController extends Controller
     public function apiStore(Request $request)
     {
         $pedido = Pedido::create(request()->all());
-
-        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id);
 
         foreach ($doadores as $doador)
         {
