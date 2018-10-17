@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use App\Pedido;
 use App\TipoSanguineo;
 use App\Estado;
-use Mail;
+use App\Jobs\EnviarEmailDoacao;
 use Response;
-use App\Mail\EmailPedido;
 
 class PedidosController extends Controller
 {
@@ -47,12 +46,11 @@ class PedidosController extends Controller
 
         $pedido = Pedido::create(request()->all());
 
-        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id);
+        $doadores = TipoSanguineo::match($request->tipo_sanguineo_id,$request->check_exclusivo);
 
-        foreach ($doadores as $doador)
-        {
-            Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
-        }
+        dd($doadores);
+
+        dispatch(new EnviarEmailDoacao($doadores,$pedido));
 
         return redirect('/');
     }

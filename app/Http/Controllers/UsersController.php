@@ -42,7 +42,7 @@ class UsersController extends Controller
             'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
             'email' => $request->email,
             'telefone' => $request->telefone,
-            'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
+            'ultima_doacao' => date('Y-m-d', strtotime($request->ultima_doacao)),
             'cidade' => $request->cidade,
             // 'estado_id' => $request->estado_id,
             'password' => Hash::make($request->password)

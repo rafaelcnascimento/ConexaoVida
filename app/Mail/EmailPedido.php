@@ -32,6 +32,6 @@ class EmailPedido extends Mailable
      */
     public function build()
     {
-        return $this->view('email.pedido');
+        return $this->subject("Precisamos da sua doação")->view('email.pedido');
     }
 }
