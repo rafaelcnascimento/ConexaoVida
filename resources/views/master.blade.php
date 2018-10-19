@@ -15,57 +15,59 @@
     <body>
         <header>
             <!-- Fixed navbar -->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #8A0707;height: 80px;">
-                <a class="navbar-brand" href="/"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/como-funciona">Como funciona</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/doacoes">Doações</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="registro">Baixe o aplicativo</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="sobre">Sobre</a>
-                        </li>
-                        @if (Auth::check())
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
-                    <div class="navbar-nav mt-2 mt-md-0">
-                        @if (Auth::check())
-                            <li class="nav-item dropdown active" style="left: -100%;">
-                                <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
-                               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                 <a class="dropdown-item" href="/meus-dados">Meus dados</a>
-                                 <a class="dropdown-item" href="#">Sair</a>
-                               </div>
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="/"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/como-funciona">Como funciona</a>
                             </li>
-                        @else
-                            <li class="nav-item active" style="margin-top: 15px;">
-                                <a class="nav-link" href="login">Entre</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/doacoes">Doações</a>
                             </li>
-                            <li class="nav-item active" style="margin-top: 15px;">
-                                <p class="nav-link">ou</p>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="registro">Baixe o aplicativo</a>
                             </li>
-                            <li class="nav-item active" style="margin-top: 15px;">
-                                <a class="nav-link" href="registrar">Cadastre-se</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="sobre">Sobre</a>
                             </li>
-                        @endif    
+                            @if (Auth::check())
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
+                            </li>
+                            @endif
+                        </ul>
+                    </div>
+                        <div class="navbar-nav mt-2 mt-md-0">
+                            @if (Auth::check())
+                                <li class="nav-item dropdown active" style="left: -100%;">
+                                    <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
+                                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                    <a class="dropdown-item" href="/meus-dados">Meus dados</a>
+                                    <a class="dropdown-item" href="#">Sair</a>
+                                </div>
+                                </li>
+                            @else
+                                <li class="nav-item active" style="margin-top: 15px;">
+                                    <a class="nav-link" href="login">Entre</a>
+                                </li>
+                                <li class="nav-item active" style="margin-top: 15px;">
+                                    <p class="nav-link">ou</p>
+                                </li>
+                                <li class="nav-item active" style="margin-top: 15px;">
+                                    <a class="nav-link" href="registrar">Cadastre-se</a>
+                                </li>
+                            @endif    
+                        </div>
                     </div>
                 </nav>
             </header>
 
-           <div style="margin-top: 100px;">
+           <div class="container" style="margin-top: 100px;">
                @yield('content')
            </div>    
 
