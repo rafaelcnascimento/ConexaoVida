@@ -3,6 +3,7 @@
 namespace App;
 
 use Auth;
+use Carbon\Carbon;
 use DateInterval;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,9 +19,7 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
-    protected $casts = [
-            'ultima_doacao' => 'datetime',
-        ];
+    protected $dates = ['ultima_doacao'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -77,6 +76,13 @@ class User extends Authenticatable
         }
 
         return $data;
+    }
+
+    public static function formatDate($value)
+    {
+        $date = Carbon::createFromFormat('d/m/Y', $value);
+        
+        return $date->format('Y-m-d');
     }
 
 }

@@ -42,10 +42,17 @@ class UsersController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+            'ultima_doacao' => 'date_format:"d/m/Y"',
             // 'estado_id' => 'required|numeric',
         ]);
 
-        $user->update($request->all());
+        $dados = $request->all();
+
+        $dados['ultima_doacao'] = User::formatDate($request->ultima_doacao);
+
+        // dd($dados);
+
+        $user->update($dados);
 
         return redirect('/meus-dados');
     }
