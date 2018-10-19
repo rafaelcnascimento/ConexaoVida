@@ -13,6 +13,17 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class UsersController extends Controller
 {
+    public function show()
+    {
+        $user = Auth::user();
+
+        $estados = \App\Estado::all();
+
+        $tipos_sanguineos = \App\TipoSanguineo::all();
+
+        return view('dados', compact('estados','tipos_sanguineos','user'));
+    }
+
     public function create()
     {
         $estados = \App\Estado::all();
@@ -20,6 +31,23 @@ class UsersController extends Controller
         $tipos_sanguineos = \App\TipoSanguineo::all();
 
         return view('auth.register', compact('estados','tipos_sanguineos'));
+    }
+
+    protected function update(User $user, Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'genero' => 'required|string|max:12',
+            'tipo_sanguineo_id' => 'required|numeric',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
+            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+            // 'estado_id' => 'required|numeric',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect('/meus-dados');
     }
 
     protected function store(Request $request)

@@ -38,11 +38,11 @@ class EnviarEmailDoacao implements ShouldQueue
     {
         $pedido->tipo_sanguineo_id = 1;
 
-        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$flag);
+        $doadores = TipoSanguineo::match($this->pedido->tipo_sanguineo_id,$this->flag);
 
         foreach ($doadores as $doador)
         {
-            Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
+            Mail::to($doador->email)->send(new EmailPedido($this->pedido,$doador));
         }
     }
 }

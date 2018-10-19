@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registrar') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/registrar">
+                    <form method="PATCH" action="/user">
                         @csrf
 
                         <div class="form-group row">
@@ -31,8 +31,8 @@
                             <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('genero') ? ' is-invalid' : '' }}" id="genero"  name="genero" required>
                                     <option selected="" disabled="">Selecione</option>
-                                    <option value="feminimo" {{ (old('genero') == "feminimo" ? "selected":"") }}>Feminino</option>
-                                    <option value="masculino" {{ (old('genero') == "masculino" ? "selected":"") }}>Masculino</option>
+                                    <option value="Feminino" {{ (old('genero') == "feminimo" ? "selected":"") }}>Feminino</option>
+                                    <option value="Masculino" {{ (old('genero') == "masculino" ? "selected":"") }}>Masculino</option>
                                 </select>
 
                                 @if ($errors->has('genero'))

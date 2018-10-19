@@ -31,6 +31,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function sangue()
+    {
+        return $this->belongsTo('App\TipoSanguineo','tipo_sanguineo_id');
+    }
+
     public static function getNome()
     {
         $nome_completo =  explode(' ', Auth::user()->nome);

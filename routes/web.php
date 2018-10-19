@@ -20,9 +20,10 @@ Route::get('/doacao-cadastrar', 'PedidosController@create');
 Route::post('/doacao', 'PedidosController@store');
 
 Route::get('/doar', 'UsersController@donate');
-
+Route::get('/meus-dados', 'UsersController@show');
 Route::get('/registrar', 'UsersController@create');
 Route::post('/registrar', 'UsersController@store');
+Route::patch('/user/{user}', 'UsersController@update');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
