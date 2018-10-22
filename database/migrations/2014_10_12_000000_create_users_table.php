@@ -29,7 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('nome');
             $table->string('genero');
             $table->string('email')->unique();
+            $table->boolean('recebe_email')->default(1);
             $table->string('password');
+            $table->string('api_token', 60)->unique()->nullable();
             $table->string('telefone');
             $table->string('cidade');
             $table->unsignedInteger('estado_id')->default(23);

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registrar') }}</div>
 
                 <div class="card-body">
-                    <form method="PATCH" action="/user">
+                    <form method="POST" action="/registrar">
                         @csrf
 
                         <div class="form-group row">

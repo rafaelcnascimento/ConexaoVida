@@ -50,8 +50,6 @@ class UsersController extends Controller
 
         $dados['ultima_doacao'] = User::formatDate($request->ultima_doacao);
 
-        // dd($dados);
-
         $user->update($dados);
 
         return redirect('/meus-dados');
