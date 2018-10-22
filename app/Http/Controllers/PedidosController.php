@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use Log;
 use App\TipoSanguineo;
 use App\Estado;
 use App\Jobs\EnviarEmailDoacao;
@@ -46,7 +47,9 @@ class PedidosController extends Controller
 
         $pedido = Pedido::create(request()->all());
 
-        dispatch(new EnviarEmailDoacao($request->check_exclusivo,$pedido));
+        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->check_exclusivo);
+        
+        dispatch(new EnviarEmailDoacao($pedido,$doadores));
 
         return redirect('/');
     }

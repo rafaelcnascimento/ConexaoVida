@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Log;
 use Mail;
 use App\Mail\EmailPedido;
 use App\TipoSanguineo;
@@ -15,18 +16,18 @@ class EnviarEmailDoacao implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $pedido;
-    protected $flag;
+    public $pedido;
+    public $doadores;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($flag,$pedido)
+    public function __construct($pedido,$doadores)
     {
-        $this->flag = $flag;
         $this->pedido = $pedido;
+        $this->$doadores = $doadores;
     }
 
     /**
@@ -36,13 +37,12 @@ class EnviarEmailDoacao implements ShouldQueue
      */
     public function handle()
     {
-        $pedido->tipo_sanguineo_id = 1;
+        Log::info(print_r($this->pedido, true));
+        Log::info(print_r($this->doadores, true));
 
-        $doadores = TipoSanguineo::match($this->pedido->tipo_sanguineo_id,$this->flag);
-
-        foreach ($doadores as $doador)
-        {
-            Mail::to($doador->email)->send(new EmailPedido($this->pedido,$doador));
-        }
+        // foreach ($this->doadores as $doador)
+        // {
+        //     Mail::to($doador->email)->send(new EmailPedido($this->pedido,$doador));
+        // }
     }
 }
