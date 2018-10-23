@@ -26,4 +26,6 @@ Route::post('/registrar', 'UsersController@store');
 Route::patch('/user/{user}', 'UsersController@update');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/logout','Auth\LoginController@logout');
 Route::post('/login', 'Auth\LoginController@login');
+

@@ -48,7 +48,7 @@
                                     <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                                     <a class="dropdown-item" href="/meus-dados">Meus dados</a>
-                                    <a class="dropdown-item" href="#">Sair</a>
+                                    <a class="dropdown-item" href="/logout">Sair</a>
                                 </div>
                                 </li>
                             @else
