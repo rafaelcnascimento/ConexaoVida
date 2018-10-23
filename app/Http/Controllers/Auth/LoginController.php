@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
 
+
+namespace App\Http\Controllers\Auth;
+use Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,4 +40,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function apiLogin(Request $request)
+    {
+        if ($this->attemptLogin($request)) 
+        {
+           $user = $this->guard()->user();
+           $user->generateToken();
+
+           return response()->json($user,200);
+        } 
+
+        return response()->json(400);
+    }
+
 }

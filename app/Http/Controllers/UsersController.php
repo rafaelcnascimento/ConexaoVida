@@ -109,21 +109,6 @@ class UsersController extends Controller
     }
 
     //Funcões API
-    protected function apiLogin(Request $request)
-    {
-        $this->validateLogin($request);
-
-        if ($this->attemptLogin($request)) 
-        {
-           $user = $this->guard()->user();
-           $user->generateToken();
-
-           return response()->json($user,200);
-        }
-
-        return response()->json(400);
-    }
-
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [

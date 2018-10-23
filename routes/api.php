@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::get('/doacoes', 'PedidosController@apiIndex')->middleware('auth:api');
 Route::get('/doacao/{pedido}', 'PedidosController@apiShow');
@@ -25,5 +22,4 @@ Route::post('/doacao', 'PedidosController@apiStore');
 Route::get('/registrar', 'UsersController@apiCreate');
 Route::post('/registrar', 'UsersController@apiStore');
 
-Route::post('/login', 'UsersController@apiLogin');
-
+Route::post('/login', 'Auth\LoginController@apiLogin');
