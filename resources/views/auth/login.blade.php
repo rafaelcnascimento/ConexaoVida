@@ -4,7 +4,7 @@
 <div class="container">
     <div class="justify-content-center">
         <div class="col-md-10" style="margin-top: 150px;">
-        <form method="POST" action="/login">
+        <form method="POST" action="/api/login">
             @csrf
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>

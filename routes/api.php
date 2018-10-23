@@ -25,3 +25,5 @@ Route::post('/doacao', 'PedidosController@apiStore');
 Route::get('/registrar', 'UsersController@apiCreate');
 Route::post('/registrar', 'UsersController@apiStore');
 
+Route::post('/login', 'UsersController@apiLogin');
+

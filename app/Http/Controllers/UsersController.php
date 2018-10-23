@@ -108,7 +108,37 @@ class UsersController extends Controller
         
     }
 
-    //Rotas API
+    //Funcões API
+    protected function apiLogin(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) 
+        {
+           $user = $this->guard()->user();
+           $user->generateToken();
+
+           return response()->json($user,200);
+        }
+
+        return response()->json(400);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        return $this->guard()->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+    }
+
     public function apiCreate()
     {
         $estados = Estado::all();
