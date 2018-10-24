@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Pedido;
 use Auth;
 
 class HomeController extends Controller
@@ -18,11 +19,15 @@ class HomeController extends Controller
         if (Auth::check()) 
         {
             return view('homeLogado');
+            
         } 
 
         else 
         {
-            return view('home');
+            //return view('home');
+            $pedidos = Pedido::paginate(10);
+            
+            return view('pedidosListar', compact('pedidos'));
         }
     }
 
