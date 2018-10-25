@@ -122,21 +122,6 @@
                                     @endif
                                 </div>
                             </div> --}}
-
-                            <div class="form-group row">
-                                <label for="ultima_doacao" class="col-md-4 col-form-label text-md-right">{{ __('Quando foi a sua úiltima doação') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="ultima_doacao" type="text" class="form-control{{ $errors->has('ultima_doacao') ? ' is-invalid' : '' }}" name="ultima_doacao" value="{{$user->ultima_doacao->format('d/m/Y')}}" required>
-
-                                    @if ($errors->has('ultima_doacao'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('ultima_doacao') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary custom-btn">

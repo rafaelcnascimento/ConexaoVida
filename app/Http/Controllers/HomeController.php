@@ -16,19 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {    
-        if (Auth::check()) 
-        {
-            return view('homeLogado');
+        $pedidos = Pedido::paginate(10);
             
-        } 
-
-        else 
-        {
-            //return view('home');
-            $pedidos = Pedido::paginate(10);
-            
-            return view('pedidosListar', compact('pedidos'));
-        }
+        return view('pedidosListar', compact('pedidos'));
     }
 
     public function comoFunciona()

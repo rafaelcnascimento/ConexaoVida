@@ -42,15 +42,10 @@ class UsersController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
-            'ultima_doacao' => 'date_format:"d/m/Y"',
             // 'estado_id' => 'required|numeric',
         ]);
 
-        $dados = $request->all();
-
-        $dados['ultima_doacao'] = User::formatDate($request->ultima_doacao);
-
-        $user->update($dados);
+        $user->update($request->all());
 
         return redirect('/meus-dados');
     }
@@ -65,47 +60,16 @@ class UsersController extends Controller
             //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
-            'ultima_doacao' => 'date_format:"d/m/Y"',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        User::create([
-            'nome' => $request->nome,
-            'genero' => $request->genero,
-            'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
-            'email' => $request->email,
-            'telefone' => $request->telefone,
-            'ultima_doacao' => date('Y-m-d', strtotime($request->ultima_doacao)),
-            'cidade' => $request->cidade,
-            // 'estado_id' => $request->estado_id,
-            'password' => Hash::make($request->password)
-        ]);
+        $dados = $request->except('password_confirmation');
+
+        $dados->password = Hash::make($request->password);
+
+        User::create($dados);
 
         return redirect('/login');
-    }
-
-    public function donate()
-    {
-        $user = Auth::user();
-
-        $data = $user->getData();
-
-        $hoje = Carbon::now();
-
-        if ($hoje > $data)
-        {
-           $user->update([
-            'ultima_doacao' => $hoje
-            ]);
-        }
-
-        else
-        {
-            echo "nao";
-        }
-
-        return redirect('/');
-        
     }
 
     //Funcões API

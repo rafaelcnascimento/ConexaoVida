@@ -38,7 +38,6 @@ class CreateUsersTable extends Migration
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedInteger('tipo_sanguineo_id');
             $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
-            $table->date('ultima_doacao')->nullable;
             $table->rememberToken();
             $table->timestamps();
         });

@@ -18,9 +18,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [];
-
-    protected $dates = ['ultima_doacao'];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -67,29 +64,5 @@ class User extends Authenticatable
 
         return $telefone;
     }
-
-    public static function getData() 
-    {
-        $data = Auth::user()->ultima_doacao;
-
-        if (!strcmp(Auth::user()->genero, 'masculino')) 
-        {
-            $data->add(new DateInterval('P2M'));
-        }    
-        else 
-        {
-            $data->add(new DateInterval('P4M'));
-        }
-
-        return $data;
-    }
-
-    public static function formatDate($value)
-    {
-        $date = Carbon::createFromFormat('d/m/Y', $value);
-        
-        return $date->format('Y-m-d');
-    }
-
 }
 
