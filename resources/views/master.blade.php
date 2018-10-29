@@ -19,7 +19,7 @@
                 <div class="container">
                     <a class="navbar-brand" href="/"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto">
@@ -36,13 +36,13 @@
                                 <a class="nav-link" href="sobre">Sobre</a>
                             </li>
                             @if (Auth::check())
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
-                            </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
+                                </li>
                             @endif
                         </ul>
-                    </div>
-                        <div class="navbar-nav mt-2 mt-md-0">
+
+                        <div class="navbar-nav ml-auto mt-2 mt-md-0">
                             @if (Auth::check())
                                 <li class="nav-item dropdown active" style="left: -100%;">
                                     <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
@@ -52,31 +52,35 @@
                                 </div>
                                 </li>
                             @else
-                                <li class="nav-item active" style="margin-top: 15px;">
-                                    <a class="nav-link" href="login">Entre</a>
-                                </li>
-                                <li class="nav-item active" style="margin-top: 15px;">
-                                    <p class="nav-link">ou</p>
-                                </li>
-                                <li class="nav-item active" style="margin-top: 15px;">
-                                    <a class="nav-link" href="registrar">Cadastre-se</a>
-                                </li>
+                                <div class="d-flex">
+                                    <li class="nav-item active" style="margin-top: 15px;">
+                                        <a class="nav-link" href="login">Entre</a>
+                                    </li>
+                                    <li class="nav-item active" style="margin-top: 15px;">
+                                        <p class="nav-link">&nbsp;ou&nbsp;</p>
+                                    </li>
+                                    <li class="nav-item active" style="margin-top: 15px;">
+                                        <a class="nav-link" href="registrar">Cadastre-se</a>
+                                    </li>
+                                </div>
                             @endif    
                         </div>
                     </div>
-                </nav>
-            </header>
+                </div>
+            </nav>
+        </header>
 
            <div class="container" style="margin-top: 100px;">
                @yield('content')
            </div>    
 
-        <footer class="footer">
+        <footer class="footer bg-light text-dark">
             <div class="container">
                 <center>
-                    <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="color: white; font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>
+                    <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>
                 </center>
             </div>
+
         </footer>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
