@@ -24,7 +24,7 @@
                                     @endif
                                 </div>
                             </div>
-
+{{-- 
                             <div class="form-group row">
                                 <label for="genero" class="col-md-4 col-form-label text-md-right">{{ __('Gênero') }}</label>
 
@@ -41,7 +41,7 @@
                                         </span>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row">
                                 <label for="tipo_sanguineo_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>

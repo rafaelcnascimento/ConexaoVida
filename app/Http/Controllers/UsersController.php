@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use App\User;
 use Auth;
 use Carbon\Carbon;
@@ -37,7 +38,6 @@ class UsersController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'genero' => 'required|string|max:12',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
@@ -54,7 +54,6 @@ class UsersController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'genero' => 'required|string|max:12',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users',
             //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
@@ -65,7 +64,7 @@ class UsersController extends Controller
 
         $dados = $request->except('password_confirmation');
 
-        $dados->password = Hash::make($request->password);
+        $dados['password'] = Hash::make($request->password);
 
         User::create($dados);
 
@@ -97,19 +96,12 @@ class UsersController extends Controller
 
     protected function apiStore(Request $request)
     {
-        User::create([
-            'nome' => $request->nome,
-            'genero' => $request->genero,
-            'tipo_sanguineo_id' => $request->tipo_sanguineo_id,
-            'email' => $request->email,
-            'telefone' => $request->telefone,
-            // 'ultima_doacao' => date('Y/m/d', strtotime($request->ultima_doacao)),
-            'ultima_doacao' => $request->ultima_doacao,
-            'cidade' => $request->cidade,
-            // 'estado_id' => $request->estado_id,
-            'password' => Hash::make($request->password)
-        ]);
+        $dados = $request->all();
 
-        return response()->json(201);
+        $dados['password'] = Hash::make($request->password);
+
+        User::create($dados);
+
+        return redirect('/login');
     }
 }
