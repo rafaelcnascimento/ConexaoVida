@@ -22,22 +22,22 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="nav nav-pills" "color:#FFFF">
-                            <li class="nav-item mr-3">
+                        <ul class="nav nav-pills d-flex flex-column flex-md-row" "color:#FFFF">
+                            <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/como-funciona">Como funciona</a>
                             </li>
                             
-                            <li class="nav-item mr-3">
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/doacoes">Doações</a>
                             </li>
-                            <li class="nav-item mr-3">
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="registro">Baixe o aplicativo</a>
                             </li>
-                            <li class="nav-item mr-3">
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="sobre">Sobre</a>
                             </li>
                             @if (Auth::check())
-                                <li class="nav-item">
+                                <li class="nav-item mb-2 mb-md-0">
                                     <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
                                 </li>
                             @endif
@@ -75,7 +75,7 @@
                @yield('content')
            </div>    
 
-           <footer class="footer bg-light text-dark">
+           <footer class="footer bg-dark text-white">
             <div class="container">
                 <center>
                     <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>

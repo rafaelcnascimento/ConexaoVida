@@ -15,11 +15,13 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 70px;
+  height: 110px;
   line-height: 40px; /* Vertically center the text there */
   background-color: #8A0707;
   color: white;
 }
+
+
 
 .nav-link.active {
   background-color: #8A0707 !important;
@@ -36,8 +38,8 @@ body > .container {
 }
 
 .footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 code {
