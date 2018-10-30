@@ -21,6 +21,11 @@ body {
   color: white;
 }
 
+.nav-link.active {
+  background-color: #8A0707 !important;
+  border-radius: 10px;
+}
+
 
 /* Custom page CSS
 -------------------------------------------------- */

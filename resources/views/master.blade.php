@@ -22,22 +22,22 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/como-funciona">Como funciona</a>
+                        <ul class="nav nav-pills" "color:#FFFF">
+                            <li class="nav-item mr-3">
+                                <a class="nav-link active" href="/como-funciona">Como funciona</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/doacoes">Doações</a>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link active" href="/doacoes">Doações</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="registro">Baixe o aplicativo</a>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link active" href="registro">Baixe o aplicativo</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="sobre">Sobre</a>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link active" href="sobre">Sobre</a>
                             </li>
                             @if (Auth::check())
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/doacao-cadastrar">Pedir doação</a>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
                                 </li>
                             @endif
                         </ul>
@@ -74,7 +74,7 @@
                @yield('content')
            </div>    
 
-        <footer class="footer bg-light text-dark">
+           <footer class="footer bg-light text-dark">
             <div class="container">
                 <center>
                     <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>
