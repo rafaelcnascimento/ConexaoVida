@@ -83,12 +83,12 @@ class PedidosController extends Controller
     {
         $pedido = Pedido::create(request()->all());
 
-        foreach ($doadores as $doador)
-        {
-            Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
-        }
+        // foreach ($doadores as $doador)
+        // {
+        //     Mail::to($doador->email)->send(new EmailPedido($pedido,$doador));
+        // }
 
-        return response()->json(201);
+        return response()->json(200);
     }
 
 }
