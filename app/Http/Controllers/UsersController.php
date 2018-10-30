@@ -102,6 +102,21 @@ class UsersController extends Controller
 
         User::create($dados);
 
-        return redirect('/login');
+       return response()->json(200);
+    }
+
+    protected function apiUpdate(User $user, Request $request)
+    {
+        // $request->validate([
+        //     'nome' => 'required|string|max:255',
+        //     'tipo_sanguineo_id' => 'required|numeric',
+        //     'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+        //     //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
+        //     'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+        //     // 'estado_id' => 'required|numeric',
+        // ]);
+        $user->update($request->all());
+
+        return response()->json(200);
     }
 }
