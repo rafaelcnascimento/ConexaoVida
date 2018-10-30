@@ -18,7 +18,6 @@ Route::post('/login', 'Auth\LoginController@apiLogin');
 
 Route::group(['middleware' => 'auth:api'], function ()
 {
-    Route::get('/doacao-cadastrar', 'PedidosController@apiCreate');
     Route::post('/doacao', 'PedidosController@apiStore');
     Route::post('/user/{user}', 'UsersController@apiUpdate');
     Route::get('/registrar', 'UsersController@apiCreate');

@@ -115,6 +115,8 @@ class UsersController extends Controller
         //     'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
         //     // 'estado_id' => 'required|numeric',
         // ]);
+
+        Log::info(print_r($request, true));
         $user->update($request->all());
 
         return response()->json(200);
