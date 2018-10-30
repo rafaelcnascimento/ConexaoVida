@@ -45,9 +45,9 @@ class User extends Authenticatable
         return $nome_completo[0];
     }
 
-    public static function getFone() 
+    public function getFone() 
     {
-        $telefone = Auth::user()->telefone;
+        $telefone = $this->telefone;
 
         if (strlen($telefone) == 11) 
         {
