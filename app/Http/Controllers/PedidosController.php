@@ -45,11 +45,20 @@ class PedidosController extends Controller
             // 'estado_id' => 'required|numeric',
         ]);
 
-        $pedido = Pedido::create(request()->all());
+        $dados = request()->all();
 
-        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->check_exclusivo);
+        if (isset($dados['exclusivo'])) {
+            $dados['exclusivo'] = 1;
+        } else $dados['exclusivo'] = 0;
+
+        $pedido = Pedido::create($dados);
+
+        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->exclusivo);
         
         dispatch(new EnviarEmailDoacao($pedido,$doadores));
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Pedido criado com sucesso');
 
         return redirect('/');
     }

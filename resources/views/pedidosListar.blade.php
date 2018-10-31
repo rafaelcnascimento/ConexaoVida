@@ -1,6 +1,12 @@
 @extends('master')
 @section('content')
 <div class="container">
+    @if(session()->has('message.level'))
+        <div class="alert alert-{{ session('message.level') }}"> 
+        {!! session('message.content') !!}
+        </div>
+    @endif
+
     <table class="ui celled table">
         <thead>
             <tr>
@@ -18,9 +24,13 @@
                     <td>{{$pedido->cidade}}</td>
                     <td>{{$pedido->sangue->nome}}</td> 
                     <td>
-                        @foreach ($pedido->sangue->doadores(1) as $doador)
-                            {{$doador->sangue->nome }}
-                        @endforeach
+                       @if ($pedido->exclusivo)
+                        <p>Apenas {{$pedido->sangue->nome}}</p>
+                       @else
+                            @foreach ($pedido->sangue->doadores($pedido->sangue->id) as $doador)
+                                {{$doador->sangue->nome }}
+                            @endforeach
+                       @endif
                     </td>   
                     <td><a href="doacao/{{$pedido->id}}">
                         <button type="submit" class="btn btn-primary custom-btn">

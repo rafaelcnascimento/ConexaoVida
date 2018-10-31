@@ -34,6 +34,40 @@ class UsersController extends Controller
         return view('auth.register', compact('estados','tipos_sanguineos'));
     }
 
+    public function password()
+    {
+        return view('auth.mudarSenha');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'senha_atual' => 'required|string|min:6|',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (Hash::check($request->senha_atual, $user->password))
+        { 
+            $user->fill([
+                'password' => Hash::make($request->password)
+            ])->save();
+
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Senha modificada com sucesso');
+            
+            return redirect('/mudar-senha');
+        } 
+        else 
+        {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'A senha atual está incorreta');
+            
+            return redirect('/mudar-senha');
+        }
+    }
+
     protected function update(User $user, Request $request)
     {
         $request->validate([
@@ -46,6 +80,9 @@ class UsersController extends Controller
         ]);
 
         $user->update($request->all());
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Informações modificadas com sucesso');
 
         return redirect('/meus-dados');
     }
@@ -67,6 +104,9 @@ class UsersController extends Controller
         $dados['password'] = Hash::make($request->password);
 
         User::create($dados);
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Conta criada com sucesso');
 
         return redirect('/login');
     }

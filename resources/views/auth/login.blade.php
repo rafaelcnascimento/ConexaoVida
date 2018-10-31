@@ -6,6 +6,12 @@
         <div class="col-md-10" style="margin-top: 150px;">
         <form method="POST" action="/login">
             @csrf
+            @if(session()->has('message.level'))
+               <div class="alert alert-{{ session('message.level') }}"> 
+               {!! session('message.content') !!}
+               </div>
+            @endif
+
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 

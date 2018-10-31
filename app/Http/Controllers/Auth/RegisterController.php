@@ -87,11 +87,9 @@ class RegisterController extends Controller
     {
         return \App\User::create([
             'nome' => $data['nome'],
-            'genero' => $data['genero'],
             'tipo_sanguineo_id' => $data['tipo_sanguineo_id'],
             'email' => $data['email'],
             'telefone' => $data['telefone'],
-            'ultima_doacao' => date('Y/m/d', strtotime($data['ultima_doacao'])),
             'cidade' => $data['cidade'],
             'estado_id' => $data['estado_id'],
             'senha' => Hash::make($data['senha']),

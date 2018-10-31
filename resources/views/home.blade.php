@@ -9,4 +9,9 @@
 <p class="lead">Para receptores:<p>
 <p>Crie o seu cadastro e depois clique em <a href="doar">Doações</a> e <a href="new-donation"> Cadastrar um novo pedido</a>. Informe o nome do paciente,tipo sanguineo e o hospital onde a pessoa se encontra. O sistema informará todas as pessoas desses grupo automaticamente via email e notificações no aplicativo</p>
 </div>
+<h1 class="mt-5">Compatibilidade sanguínea</h1>
+<center>
+    <img src="{{asset('img/tabela.jpg') }}">
+</center>
+
 @endsection

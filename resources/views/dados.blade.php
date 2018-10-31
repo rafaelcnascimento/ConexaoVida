@@ -4,12 +4,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Registrar') }}</div>
+                    <div class="card-header">{{ __('Meus dados') }}</div>
 
                     <div class="card-body">
                         <form method="post" action="/user/{{$user->id}}">
                             @method('patch')
                             @csrf
+                            
+                            @if(session()->has('message.level'))
+                                <div class="alert alert-{{ session('message.level') }}"> 
+                                {!! session('message.content') !!}
+                                </div>
+                            @endif
 
                             <div class="form-group row">
                                 <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome Completo') }}</label>
