@@ -12,4 +12,7 @@ class Compatibilidade extends Model
     {
         return $this->belongsTo('App\TipoSanguineo','doador_id');
     }
+
+    
+    
 }

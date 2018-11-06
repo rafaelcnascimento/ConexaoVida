@@ -29,14 +29,14 @@ class CreateUsersTable extends Migration
             $table->string('nome');
             $table->string('email')->unique();
             $table->boolean('recebe_email')->default(1);
-            $table->string('password');
-            $table->string('api_token', 60)->unique()->nullable();
             $table->string('telefone');
             $table->string('cidade');
             $table->unsignedInteger('estado_id')->default(23);
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedInteger('tipo_sanguineo_id');
             $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
+            $table->string('password');
+            $table->string('api_token', 60)->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

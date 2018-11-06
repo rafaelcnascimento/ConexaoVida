@@ -10,17 +10,17 @@ class TipoSanguineo extends Model
 {
     protected $table = 'tipos_sanguineos';
 
-    public static function match($tipo,$flag)
+    public static function match($tipo, $flag)
     {
         if (!$flag) 
         {
             $compativeis = Compatibilidade::where('receptor_id',$tipo)->pluck('doador_id');
 
-            $doadores = User::whereIn('tipo_sanguineo_id',$compativeis)->get();
+            $doadores = User::where('recebe_email',true)->whereIn('tipo_sanguineo_id',$compativeis)->get();
         } 
         else
         {
-            $doadores = User::where('tipo_sanguineo_id',$tipo)->get();
+            $doadores = User::where('recebe_email',true)->where('tipo_sanguineo_id',$tipo)->get();
         }
 
         return $doadores;
@@ -32,4 +32,12 @@ class TipoSanguineo extends Model
 
         return $doadores;
     }
+
+    public static function receptores($tipo)
+    {
+        $receptores = Compatibilidade::where('doador_id',$tipo)->get();
+
+        return $receptores;
+    }
+
 }

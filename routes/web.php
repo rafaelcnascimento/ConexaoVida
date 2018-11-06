@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/como-funciona', 'HomeController@comoFunciona');
+Route::get('/sobre', 'HomeController@sobre');
 
 Route::get('/doacoes', 'PedidosController@index');
 Route::get('/doacao/{pedido}', 'PedidosController@show');

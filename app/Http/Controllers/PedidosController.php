@@ -14,6 +14,10 @@ class PedidosController extends Controller
 {
     public function index()
     {
+        $pedidos = TipoSanguineo::receptores(2);
+
+        dd($pedidos);
+
         $pedidos = Pedido::paginate(10);
         
         return view('pedidosListar', compact('pedidos'));
@@ -53,9 +57,9 @@ class PedidosController extends Controller
 
         $pedido = Pedido::create($dados);
 
-        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->exclusivo);
-        
-        dispatch(new EnviarEmailDoacao($pedido,$doadores));
+        // $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->exclusivo);
+
+        // dd($doadores);
 
         $request->session()->flash('message.level', 'success');
         $request->session()->flash('message.content', 'Pedido criado com sucesso');

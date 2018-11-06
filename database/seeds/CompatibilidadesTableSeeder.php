@@ -26,7 +26,7 @@ class CompatibilidadesTableSeeder extends Seeder
             ['receptor_id' => 3, 'doador_id' => 4,],
             // A-
             ['receptor_id' => 4, 'doador_id' => 2,],
-            ['receptor_id' => 4, 'doador_id' => 2,],
+            ['receptor_id' => 4, 'doador_id' => 4,],
             // B+
             ['receptor_id' => 5, 'doador_id' => 1,],
             ['receptor_id' => 5, 'doador_id' => 2,],
