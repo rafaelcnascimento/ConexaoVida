@@ -75,12 +75,13 @@
                @yield('content')
            </div>    
 
-           <footer class="footer bg-dark text-white">
-            <div class="container">
+           <footer class="footer text-dark">
+            
                 <center>
                     <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>
                 </center>
-            </div>
+    
+                <img style="height: 60px;" src="{{ asset('img/ads.png') }}">
 
         </footer>
         <!-- Optional JavaScript -->
