@@ -48,7 +48,7 @@ class LoginController extends Controller
            $user = $this->guard()->user();
            $user->generateToken();
 
-           return response()->json($user,200);
+           return response()->json($user, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
         } 
 
         return response()->json(400);

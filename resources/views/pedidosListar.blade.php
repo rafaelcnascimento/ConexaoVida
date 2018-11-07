@@ -12,6 +12,7 @@
             <p>Nenhum pedido de doação encontrado</p>
         </center>
     @else
+    <div class="table-responsive">
         <table class="ui celled table">
             <thead>
                 <tr>
@@ -35,7 +36,7 @@
                         <td>{{$pedido->paciente}}</td>
                         <td>{{$pedido->cidade}}</td>
                         <td>{{$pedido->sangue->nome}}</td> 
-                        <td>
+                        <td nowrap="">
                            @if ($pedido->exclusivo)
                             <p>Apenas {{$pedido->sangue->nome}}</p>
                            @else
@@ -64,6 +65,7 @@
                 @endforeach 
             </tbody>
         </table>
+    </div>    
 
         <div style="margin-left: 40%; color:red;">
             {{ $pedidos->links() }}

@@ -131,7 +131,7 @@ class UsersController extends Controller
     {
         $estados = Estado::all();
 
-        return response()->json($estados,200);
+        return response()->json($estados, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }
 
     protected function apiStore(Request $request)
