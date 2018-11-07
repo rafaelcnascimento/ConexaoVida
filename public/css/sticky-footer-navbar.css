@@ -6,20 +6,19 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
+
 .footer {
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 0;
+  justify-content: center;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 110px;
-  line-height: 40px; /* Vertically center the text there */
-  background-color: #8A0707;
+  height: 80px;
   color: white;
 }
+
+
 
 
 
