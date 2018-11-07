@@ -147,17 +147,25 @@ class UsersController extends Controller
 
     protected function apiUpdate(User $user, Request $request)
     {
-        // $request->validate([
-        //     'nome' => 'required|string|max:255',
-        //     'tipo_sanguineo_id' => 'required|numeric',
-        //     'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-        //     //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
-        //     'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
-        //     // 'estado_id' => 'required|numeric',
-        // ]);
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'tipo_sanguineo_id' => 'required|numeric',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
+            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+            // 'estado_id' => 'required|numeric',
+        ]);
 
-        Log::info(print_r($request, true));
         $user->update($request->all());
+
+        return response()->json(200);
+    }
+
+    protected function apiUpdateSenha(User $user, Request $request) 
+    {
+        $user->password = Hash::make($request->password);
+
+        $user->save();
 
         return response()->json(200);
     }

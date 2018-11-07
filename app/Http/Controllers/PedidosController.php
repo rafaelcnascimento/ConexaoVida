@@ -34,7 +34,11 @@ class PedidosController extends Controller
 
     public function edit(Pedido $pedido)
     {
-        return view('pedidoEdit', compact('pedido'));
+        $estados = Estado::all();
+
+        $tipos_sanguineos = TipoSanguineo::all();
+
+        return view('pedidoEdit', compact('estados','tipos_sanguineos','pedido'));
     }
 
     public function create()
@@ -83,7 +87,7 @@ class PedidosController extends Controller
             'hospital' => 'required|string|max:255',
             'quarto' => 'required|string|max:255',
             'endereco_hospital' => 'required|string|max:255',
-            //'tipo_sanguineo_id' => 'required|numeric',
+            'tipo_sanguineo_id' => 'required|numeric',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
         ]);
@@ -97,9 +101,9 @@ class PedidosController extends Controller
         $pedido->update($dados);
 
         $request->session()->flash('message.level', 'success');
-        $request->session()->flash('message.content', 'Pedido criado com sucesso');
+        $request->session()->flash('message.content', 'Pedido editado com sucesso');
 
-        return redirect('/');
+        return redirect()->back();
     }
 
     //Rotas da API

@@ -3,7 +3,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-
+                @if(session()->has('message.level'))
+                    <div class="alert alert-{{ session('message.level') }}"> 
+                    {!! session('message.content') !!}
+                    </div>
+                @endif
+                
                 <form method="post" action="/doacao/{{$pedido->id}}">
                     @method('patch')
                     @csrf
@@ -62,11 +67,17 @@
 
                     <div class="form-group row">
                         <label for="tipo_sanguineo_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>
+
                         <div class="col-md-6">
-                            <input id="tipo_sanguineo_id" type="text" class="form-control" name="tipo_sanguineo_id" value="{{$pedido->sangue->nome }}"  >
+                            <select class="form-control{{ $errors->has('tipo_sanguineo_id') ? ' is-invalid' : '' }}" id="tipo_sanguineo_id"  name="tipo_sanguineo_id" required>
+                                <option selected="" value="{{$pedido->tipo_sanguineo_id}}">{{$pedido->sangue->nome}}</option>
+                                @foreach ($tipos_sanguineos as $tipo)
+                                    <option value="{{$tipo->id}}" {{ (old('tipo_sanguineo_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
+                                @endforeach
+                            </select>
 
                             @if ($errors->has('tipo_sanguineo_id'))
-                                <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback">
                                     <strong>{{ $errors->first('tipo_sanguineo_id') }}</strong>
                                 </span>
                             @endif

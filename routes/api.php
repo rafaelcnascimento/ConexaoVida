@@ -15,12 +15,13 @@ use Illuminate\Http\Request;
 Route::get('/doacoes', 'PedidosController@apiIndex');
 Route::get('/doacao/{pedido}', 'PedidosController@apiShow');
 Route::post('/login', 'Auth\LoginController@apiLogin');
+Route::get('/registrar', 'UsersController@apiCreate');
 
 Route::group(['middleware' => 'auth:api'], function ()
 {
     Route::post('/doacao', 'PedidosController@apiStore');
     Route::post('/user/{user}', 'UsersController@apiUpdate');
-    Route::get('/registrar', 'UsersController@apiCreate');
+    Route::post('/mudar-senha/{user}', 'UsersController@apiUpdateSenha');
     Route::post('/registrar', 'UsersController@apiStore');
 });
 

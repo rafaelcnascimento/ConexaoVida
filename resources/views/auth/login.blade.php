@@ -58,7 +58,7 @@
                         {{ __('Login') }}
                     </button>
 
-                    <a class="btn btn-link" href="/redefinir-password">
+                    <a class="btn btn-link" href="/resgatar-senha">
                         {{ __('Esqueceu sua senha?') }}
                     </a>
                 </div>
