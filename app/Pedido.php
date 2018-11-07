@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Pedido extends Model
 {
@@ -17,4 +18,22 @@ class Pedido extends Model
     {
         return $this->belongsTo('App\TipoSanguineo','tipo_sanguineo_id');
     }
+
+    public function criadoPor()
+    {
+        $user = Auth::user();
+        
+        if (is_null($user))
+        {
+            return false;
+        }
+
+        if ($this->user_id == $user->id) 
+        {
+            return true;    
+        } else {
+            return false;
+        }
+    }
+
 }

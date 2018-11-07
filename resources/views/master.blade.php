@@ -22,11 +22,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="nav nav-pills d-flex flex-column flex-md-row" "color:#FFFF">
+                        
+                        <ul class="nav nav-pills d-flex flex-column flex-md-row" >
                             <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/como-funciona">Como funciona</a>
                             </li>
-                            
                             <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/doacoes">Doações</a>
                             </li>
@@ -37,8 +37,11 @@
                                 <a class="nav-link active" href="sobre">Sobre</a>
                             </li>
                             @if (Auth::check())
-                                <li class="nav-item mb-2 mb-md-0">
+                                <li class="nav-item mb-2 mb-md-0 mr-3">
                                     <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
+                                </li>
+                                <li class="nav-item mb-2 mb-md-0 mr-3">
+                                    <a class="nav-link active" href="/meus-pedidos">Meus pedidos</a>
                                 </li>
                             @endif
                         </ul>
@@ -53,17 +56,14 @@
                                 </div>
                                 </li>
                             @else
-                                <div class="d-flex">
-                                    <li class="nav-item active" style="margin-top: 15px;">
-                                        <a class="nav-link" href="login">Entre</a>
+                                <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
+                                    <li class="nav-item mb-2 mb-md-0 mr-3">
+                                        <a class="nav-link active" style="color: #FFFFFF;" href="/login"> Entre</a>
                                     </li>
-                                    <li class="nav-item active" style="margin-top: 15px;">
-                                        <p class="nav-link">&nbsp;ou&nbsp;</p>
+                                    <li class="nav-item mb-2 mb-md-0 mr-3">
+                                        <a class="nav-link active" style="color: #FFFFFF;" href="/registrar"> Cadastra-se</a>
                                     </li>
-                                    <li class="nav-item active" style="margin-top: 15px;">
-                                        <a class="nav-link" href="registrar">Cadastre-se</a>
-                                    </li>
-                                </div>
+                                </ul>
                             @endif    
                         </div>
                     </div>

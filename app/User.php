@@ -64,5 +64,22 @@ class User extends Authenticatable
 
         return $telefone;
     }
+
+    public function isAdmin()
+    {
+        $user = Auth::user();
+        
+        if (is_null($user))
+        {
+            return false;
+        }
+
+        if ($user->id == 1) 
+        {
+            return true;    
+        } else {
+            return false;
+        }
+    }
 }
 

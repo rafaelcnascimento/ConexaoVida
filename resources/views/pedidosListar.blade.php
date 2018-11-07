@@ -15,6 +15,13 @@
                 <th>Tipo Sanguíneo</th>
                 <th>Quem pode doar</th>
                 <th>Detalhes</th>
+                {{-- Overhead a seguir --}}
+                @foreach ($pedidos as $pedido)
+                    @if($pedido->requerente->isAdmin() || $pedido->criadoPor())
+                        <th>Editar</th>
+                        @break     
+                    @endif   
+                @endforeach
             </tr>
         </thead>
         <tbody>
@@ -31,18 +38,33 @@
                                 {{$doador->sangue->nome }}
                             @endforeach
                        @endif
-                    </td>   
-                    <td><a href="doacao/{{$pedido->id}}">
-                        <button type="submit" class="btn btn-primary custom-btn">
-                            {{ __('Detalhes') }}
-                        </button>
-                    </a></td>     
+                    </td> 
+                    <td>
+                        <a href="doacao/{{$pedido->id}}">
+                            <button type="submit" class="btn btn-primary custom-btn">
+                                {{ __('Detalhes') }}
+                            </button>
+                        </a>
+                    </td>     
+                    @if($pedido->requerente->isAdmin() || $pedido->criadoPor())
+                        <td>
+                            <a href="/editar-doacao/{{$pedido->id}}">
+                                <button type="submit" class="btn btn-success custom-btn">
+                                    {{ __('Editar') }}
+                                </button>
+                            </a>
+                        </td>  
+                    @endif   
             </tr>
             @endforeach 
         </tbody>
     </table>
 
-    {{ $pedidos->links() }}
+    <div style="margin-left: 40%; color:red;">
+        {{ $pedidos->links() }}
+    </div>    
+      
+    
 
 </div>    
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use Auth;
 use Log;
 use App\TipoSanguineo;
 use App\Estado;
@@ -14,11 +15,14 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = TipoSanguineo::receptores(2);
-
-        dd($pedidos);
-
         $pedidos = Pedido::paginate(10);
+        
+        return view('pedidosListar', compact('pedidos'));
+    }
+
+    public function indexUser()
+    {
+        $pedidos = Pedido::where('user_id',Auth::user()->id)->paginate(10);
         
         return view('pedidosListar', compact('pedidos'));
     }
@@ -26,6 +30,11 @@ class PedidosController extends Controller
     public function show(Pedido $pedido)
     {
         return view('pedidoShow', compact('pedido'));
+    }
+
+    public function edit(Pedido $pedido)
+    {
+        return view('pedidoEdit', compact('pedido'));
     }
 
     public function create()
@@ -60,6 +69,32 @@ class PedidosController extends Controller
         // $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$request->exclusivo);
 
         // dd($doadores);
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Pedido criado com sucesso');
+
+        return redirect('/');
+    }
+
+    protected function update(Pedido $pedido, Request $request)
+    {
+        $request->validate([
+            'paciente' => 'required|string|max:255',
+            'hospital' => 'required|string|max:255',
+            'quarto' => 'required|string|max:255',
+            'endereco_hospital' => 'required|string|max:255',
+            //'tipo_sanguineo_id' => 'required|numeric',
+            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+            // 'estado_id' => 'required|numeric',
+        ]);
+
+        $dados = request()->all();
+
+        if (isset($dados['exclusivo'])) {
+            $dados['exclusivo'] = 1;
+        } else $dados['exclusivo'] = 0;
+
+        $pedido->update($dados);
 
         $request->session()->flash('message.level', 'success');
         $request->session()->flash('message.content', 'Pedido criado com sucesso');
