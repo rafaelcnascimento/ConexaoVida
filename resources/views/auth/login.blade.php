@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center">
-        <div class="col-md-10" style="margin-top: 150px;">
+        <div class="col-md-10">
         <form method="POST" action="/login">
             @csrf
             @if(session()->has('message.level'))

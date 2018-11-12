@@ -15,7 +15,7 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::paginate(10);
+        $pedidos = Pedido::paginate(1);
         
         return view('pedidosListar', compact('pedidos'));
     }
@@ -53,9 +53,9 @@ class PedidosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'paciente' => 'required|string|max:255',
-            'hospital' => 'required|string|max:255',
-            'quarto' => 'required|string|max:255',
+            'paciente' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'hospital' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'quarto' => 'required|numeric|max:255',
             'endereco_hospital' => 'required|string|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
@@ -109,7 +109,7 @@ class PedidosController extends Controller
     //Rotas da API
     public function apiIndex()
     {
-        $pedidos = Pedido::paginate(10);
+        $pedidos = Pedido::paginate(5);
         
         return response()->json($pedido, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }

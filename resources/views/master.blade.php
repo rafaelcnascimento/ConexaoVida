@@ -48,13 +48,14 @@
 
                         <div class="navbar-nav ml-auto mt-2 mt-md-0">
                             @if (Auth::check())
-                                <li class="nav-item dropdown active" style="left: -100%;">
-                                    <div class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, {{Auth::user()->getNome()}}</div>
-                                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                    <a class="dropdown-item" href="/meus-dados">Meus dados</a>
-                                    <a class="dropdown-item" href="/logout">Sair</a>
-                                </div>
-                                </li>
+                                <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
+                                    <li class="nav-item mb-2 mb-md-0 mr-3">
+                                        <a class="nav-link" style="color: black" href="/meus-dados">Meus dados</a>
+                                    </li>
+                                    <li class="nav-item mb-2 mb-md-0 mr-3">
+                                       <a class="nav-link" style="color: black;" href="/logout">Sair</a>
+                                    </li>
+                                </ul>
                             @else
                                 <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
                                     <li class="nav-item mb-2 mb-md-0 mr-3">

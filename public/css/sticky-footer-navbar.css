@@ -18,13 +18,24 @@ body {
   color: white;
 }
 
-
-
-
-
 .nav-link.active {
   background-color: #8A0707 !important;
   border-radius: 10px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #8A0707; 
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #8A0707;
+    border-color: #8A0707;
 }
 
 
