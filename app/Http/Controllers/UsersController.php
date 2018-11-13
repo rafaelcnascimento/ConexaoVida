@@ -71,10 +71,10 @@ class UsersController extends Controller
     protected function update(User $user, Request $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-            //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
+            'telefone' => 'digits_between:10,11|required',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
         ]);
@@ -90,10 +90,10 @@ class UsersController extends Controller
     protected function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users',
-            //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
+            'telefone' => 'digits_between:10,11|required',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
             'password' => 'required|string|min:6|confirmed',
@@ -147,15 +147,6 @@ class UsersController extends Controller
 
     protected function apiUpdate(User $user, Request $request)
     {
-        $request->validate([
-            'nome' => 'required|string|max:255',
-            'tipo_sanguineo_id' => 'required|numeric',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-            //'telefone' => 'nullable|required|min:10|max:15|regex:/^[0-9]+[-]*[0-9]+[-]*[0-9]+$/u',
-            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
-            // 'estado_id' => 'required|numeric',
-        ]);
-
         $user->update($request->all());
 
         return response()->json(200);
