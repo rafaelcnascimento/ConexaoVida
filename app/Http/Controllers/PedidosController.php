@@ -15,7 +15,7 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::paginate(1);
+        $pedidos = Pedido::paginate(10);
         
         return view('pedidosListar', compact('pedidos'));
     }
@@ -109,7 +109,7 @@ class PedidosController extends Controller
     //Rotas da API
     public function apiIndex()
     {
-        $pedidos = Pedido::paginate(5);
+        $pedidos = Pedido::paginate(10);
         
         return response()->json($pedidos, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }

@@ -142,7 +142,7 @@ class UsersController extends Controller
 
         User::create($dados);
 
-       return response()->json(200);
+       return response()->json($request, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }
 
     protected function apiUpdate(User $user, Request $request)
@@ -161,3 +161,11 @@ class UsersController extends Controller
         return response()->json(200);
     }
 }
+
+
+// urlConnection.setRequestMethod("POST");
+
+//                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
+//                 bw.write(jason.toString());
+//                 bw.flush();
+//                 bw.close();
