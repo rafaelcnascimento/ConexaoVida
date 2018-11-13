@@ -111,7 +111,7 @@ class PedidosController extends Controller
     {
         $pedidos = Pedido::paginate(10);
         
-        return response()->json($pedido, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
+        return response()->json($pedidos, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }
 
     public function apiShow(Pedido $pedido)
