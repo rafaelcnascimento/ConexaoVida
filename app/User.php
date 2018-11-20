@@ -18,24 +18,25 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [];
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function generateToken()
+    public function role()
     {
-        $this->api_token = str_random(60);
-        $this->save();
+        return $this->belongsTo('App\Role','role_id');
     }
 
     public function sangue()
     {
         return $this->belongsTo('App\TipoSanguineo','tipo_sanguineo_id');
+    }
+
+    public function generateToken()
+    {
+        $this->api_token = str_random(60);
+        $this->save();
     }
 
     public function getNome()

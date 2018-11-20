@@ -21,6 +21,7 @@
                     <th>Tipo Sanguíneo</th>
                     <th>Quem pode doar</th>
                     <th>Detalhes</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +45,14 @@
                                     {{ __('Detalhes') }}
                                 </button>
                             </a>
+                        </td>     
+                            <td>
+                                <a href="/editar-doacao/{{$pedido->id}}">
+                                    <button type="submit" class="btn btn-success custom-btn">
+                                        {{ __('Editar') }}
+                                    </button>
+                                </a>
+                            </td>  
                 </tr>
                 @endforeach 
             </tbody>

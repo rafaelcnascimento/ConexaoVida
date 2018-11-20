@@ -35,6 +35,8 @@ class CreateUsersTable extends Migration
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedInteger('tipo_sanguineo_id');
             $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
+            $table->unsignedInteger('role_id')->default(2);
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('password');
             $table->string('api_token', 60)->unique()->nullable();
             $table->rememberToken();

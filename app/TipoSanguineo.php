@@ -10,6 +10,8 @@ class TipoSanguineo extends Model
 {
     protected $table = 'tipos_sanguineos';
 
+    protected $fillable = [];
+
     public static function match($tipo, $flag)
     {
         if (!$flag) 

@@ -15,7 +15,7 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::paginate(10);
+        $pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
         
         return view('pedidosListar', compact('pedidos'));
     }
@@ -24,7 +24,7 @@ class PedidosController extends Controller
     {
         $pedidos = Pedido::where('user_id',Auth::user()->id)->paginate(10);
         
-        return view('pedidosListar', compact('pedidos'));
+        return view('meusPedidosListar', compact('pedidos'));
     }
 
     public function show(Pedido $pedido)
