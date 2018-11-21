@@ -8,7 +8,6 @@ use Auth;
 
 class Pedido extends Model
 {
-    
     use SoftDeletes;
 
     protected $guarded = [];
@@ -23,6 +22,11 @@ class Pedido extends Model
     public function sangue()
     {
         return $this->belongsTo('App\TipoSanguineo','tipo_sanguineo_id');
+    }
+
+    public function regiao()
+    {
+        return $this->belongsTo('App\Regiao','regiao_id');
     }
 
     public function criadoPor()

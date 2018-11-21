@@ -10,9 +10,9 @@
         <!-- Fonte -->
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <!-- rodapé -->
-        <link href="{{ asset('css/sticky-footer-navbar.css') }}" rel="stylesheet" type="text/css" 
+        <link href="{{ asset('css/sticky-footer-navbar.css') }}" rel="stylesheet" type="text/css">
     </head>
-    <body>
+    <body style="background-image: url({{ asset('img/novo-fundo.jpg')}});">
         <header>
             <!-- Fixed navbar -->
             <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
@@ -25,16 +25,16 @@
                         
                         <ul class="nav nav-pills d-flex flex-column flex-md-row" >
                             <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/como-funciona">Como funciona</a>
+                                <a class="nav-link active" href="/ajuda">Como funciona</a>
                             </li>
                             <li class="nav-item mb-2 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/doacoes">Doações</a>
+                                <a class="nav-link active" href="/doacoes">Pedidos de Doações</a>
                             </li>
-                            <li class="nav-item mb-2 mb-md-0 mr-3">
+                            {{-- <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="registro">Baixe o aplicativo</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item mb-2 mb-md-0 mr-3">
-                                <a class="nav-link active" href="sobre">Sobre</a>
+                                <a class="nav-link active" href="/sobre">Sobre</a>
                             </li>
                             @if (Auth::check())
                                 <li class="nav-item mb-2 mb-md-0 mr-3">
@@ -72,7 +72,7 @@
             </nav>
         </header>
 
-           <div class="container" style="margin-top: 100px;">
+           <div class="container" style="margin-top: 100px; padding-bottom: 50px; background-color: white">
                @yield('content')
            </div>    
 

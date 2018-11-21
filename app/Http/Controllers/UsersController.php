@@ -18,20 +18,20 @@ class UsersController extends Controller
     {
         $user = Auth::user();
 
-        $estados = \App\Estado::all();
+        $regioes = \App\Regiao::all();
 
         $tipos_sanguineos = \App\TipoSanguineo::all();
 
-        return view('dados', compact('estados','tipos_sanguineos','user'));
+        return view('dados', compact('regioes','tipos_sanguineos','user'));
     }
 
     public function create()
     {
-        $estados = \App\Estado::all();
+        $regioes = \App\Regiao::all();
 
         $tipos_sanguineos = \App\TipoSanguineo::all();
 
-        return view('auth.register', compact('estados','tipos_sanguineos'));
+        return view('auth.register', compact('regioes','tipos_sanguineos'));
     }
 
     public function password()
@@ -129,9 +129,9 @@ class UsersController extends Controller
 
     public function apiCreate()
     {
-        $estados = Estado::all();
+        $regioes = Estado::all();
 
-        return response()->json($estados, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
+        return response()->json($regioes, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }
 
     protected function apiStore(Request $request)

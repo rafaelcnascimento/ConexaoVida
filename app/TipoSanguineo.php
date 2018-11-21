@@ -12,13 +12,13 @@ class TipoSanguineo extends Model
 
     protected $fillable = [];
 
-    public static function match($tipo, $flag)
+    public static function match($tipo, $regiao_id, $flag)
     {
         if (!$flag) 
         {
             $compativeis = Compatibilidade::where('receptor_id',$tipo)->pluck('doador_id');
 
-            $doadores = User::where('recebe_email',true)->whereIn('tipo_sanguineo_id',$compativeis)->get();
+            $doadores = User::where('regiao_id',$regiao_id)->where('recebe_email',true)->whereIn('tipo_sanguineo_id',$compativeis)->get();
         } 
         else
         {

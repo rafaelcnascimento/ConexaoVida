@@ -40,6 +40,13 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="regiao_id" class="col-md-4 col-form-label text-md-right">{{ __('Região') }}</label>
+                    <div class="col-md-6">
+                        <input id="regiao_id" type="text" class="form-control" name="regiao_id" value="{{$pedido->regiao->nome }}" disabled >
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('Cidade') }}</label>
                     <div class="col-md-6">
                         <input id="cidade" type="text" class="form-control" name="cidade" value="{{$pedido->cidade}}" disabled >

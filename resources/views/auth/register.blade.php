@@ -91,6 +91,25 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="regiao_id" class="col-md-4 col-form-label text-md-right">{{ __('Região') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control{{ $errors->has('regiao_id') ? ' is-invalid' : '' }}" id="regiao_id"  name="regiao_id" required>
+                                    <option selected="" disabled="">Selecione</option>
+                                    @foreach ($regioes as $regiao)
+                                        <option value="{{$regiao->id}}" {{ (old('regiao_id') == $regiao->id ? "selected":"") }}>{{$regiao->nome}}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('regiao_id'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('regiao_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('Cidade') }}</label>
 
                             <div class="col-md-6">
@@ -103,25 +122,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        {{-- <div class="form-group row">
-                            <label for="estado_id" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('estado_id') ? ' is-invalid' : '' }}" id="estado_id"  name="estado_id" required>
-                                    <option selected="" disabled="">Selecione</option>
-                                    @foreach ($estados as $estado)
-                                        <option value="{{$estado->id}}" {{ (old('estado_id') == $estado->id ? "selected":"") }}>{{$estado->sigla}}</option>
-                                    @endforeach
-                                </select>
-
-                                @if ($errors->has('estado_id'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('estado_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> --}}
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>

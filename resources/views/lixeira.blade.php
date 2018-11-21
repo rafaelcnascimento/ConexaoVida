@@ -9,7 +9,7 @@
 
     @if(count($pedidos) == 0)
         <center>
-            <p>Nenhum pedido de doação encontrado</p>
+            <p>Nenhum pedido deletado foi encontrado</p>
         </center>
     @else
 
@@ -21,14 +21,12 @@
                     <th>Cidade</th>
                     <th>Tipo Sanguíneo</th>
                     <th>Quem pode doar</th>
-                    <th>Detalhes</th>
-                    <th>Editar</th>
-                    <th>Deletar</th>
+                    <th>Recuperar</th>
                 </tr>
             </thead>
             <tbody>
             @foreach ($pedidos as $pedido)       
-                  <tr>
+                    <tr>
                         <td>{{$pedido->paciente}}</td>
                         <td>{{$pedido->cidade}}</td>
                         <td>{{$pedido->sangue->nome}}</td> 
@@ -42,28 +40,13 @@
                            @endif
                         </td> 
                         <td>
-                            <a href="doacao/{{$pedido->id}}">
-                                <button type="submit" class="btn btn-primary custom-btn">
-                                    {{ __('Detalhes') }}
-                                </button>
-                            </a>
-                        </td>     
-                        <td>
-                            <a href="/editar-doacao/{{$pedido->id}}">
-                                <button type="submit" class="btn btn-success custom-btn">
-                                    {{ __('Editar') }}
-                                </button>
-                            </a>
-                        </td>  
-                        <td>
-                            <form method="post" action="doacao/{{$pedido->id}}" >
-                                @method('delete')
+                            <form method="post" action="/recuperar/{{$pedido->id}}" >
                                 @csrf
-                                    <button type="submit" class="btn btn-danger">
-                                        {{ __('Deletar') }}
+                                    <button type="submit" class="btn btn-success">
+                                        {{ __('Recuperar') }}
                                     </button>
                             </form>   
-                        </td>       
+                        </td>    
                     </tr>
                 @endforeach 
             </tbody>
@@ -73,15 +56,6 @@
         <div style="margin-left: 40%; color:red;">
             {{ $pedidos->links() }}
         </div>    
-    @endif  
-
-    <center style="margin-bottom: 10px;">
-        <a href="lixeira" >
-            <button type="submit" class="btn btn-primary custom-btn">
-                {{ __('Lixeira') }}
-            </button>
-        </a>
-    </center>
-
+    @endif
 </div>    
 @endsection

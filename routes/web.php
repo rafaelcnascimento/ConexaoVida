@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'PedidosController@index');
-Route::get('/como-funciona', 'HomeController@comoFunciona');
+Route::get('/', 'HomeController@index');
+Route::get('/como-funciona', 'HomeController@ajuda');
 Route::get('/sobre', 'HomeController@sobre');
 Route::get('/doacoes', 'PedidosController@index');
 Route::get('/registrar', 'UsersController@create');
@@ -40,9 +40,11 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/meus-pedidos', 'PedidosController@indexUser');
     Route::get('/doacao-cadastrar', 'PedidosController@create');
     Route::get('/editar-doacao/{pedido}', 'PedidosController@edit');
+    Route::get('/lixeira', 'PedidosController@deleted');
     Route::post('/doacao', 'PedidosController@store');
     Route::patch('/doacao/{pedido}', 'PedidosController@update');
-
+    Route::delete('/doacao/{pedido}', 'PedidosController@delete');
+    Route::post('/recuperar/{pedido}', 'PedidosController@restore');
 });
 
 

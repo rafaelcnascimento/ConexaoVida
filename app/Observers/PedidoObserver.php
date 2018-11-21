@@ -17,12 +17,12 @@ class PedidoObserver
      */
     public function created(Pedido $pedido)
     {
-        $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$pedido->exclusivo);
+        // $doadores = TipoSanguineo::match($pedido->tipo_sanguineo_id,$pedido->regiao_id,$pedido->exclusivo);
 
-        foreach ($doadores as $doador)
-        {
-            Mail::to($doador->email)->send(new EmailPedido($pedido, $doador));
-        }
+        // foreach ($doadores as $doador)
+        // {
+        //     Mail::to($doador->email)->send(new EmailPedido($pedido, $doador));
+        // }
     }
 
     /**

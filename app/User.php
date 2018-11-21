@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\TipoSanguineo','tipo_sanguineo_id');
     }
 
+    public function regiao()
+    {
+        return $this->belongsTo('App\Regiao','regiao_id');
+    }
+
     public function generateToken()
     {
         $this->api_token = str_random(60);

@@ -7,7 +7,7 @@ use App\Pedido;
 use Auth;
 use Log;
 use App\TipoSanguineo;
-use App\Estado;
+use App\Regiao;
 use App\Jobs\EnviarEmailDoacao;
 use Response;
 
@@ -15,9 +15,22 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
-        
-        return view('pedidosListar', compact('pedidos'));
+       if (!is_null(Auth::user())) 
+       {
+          if (Auth::user()->role_id == 1) 
+           {
+              $users = User::orderBy('nome','asc')->paginate(10);
+                  
+              return view('usersListar', compact('users'));
+           } 
+
+           else
+           {
+               $pedidos = Pedido::where('regiao_id',Auth::user()->regiao_id)->orderBy('id', 'desc')->paginate(10);
+                   
+               return view('pedidosListarLogado', compact('pedidos'));
+           } 
+       }
     }
 
     public function indexUser()
@@ -34,20 +47,55 @@ class PedidosController extends Controller
 
     public function edit(Pedido $pedido)
     {
-        $estados = Estado::all();
+        $regioes = Regiao::all();
 
         $tipos_sanguineos = TipoSanguineo::all();
 
-        return view('pedidoEdit', compact('estados','tipos_sanguineos','pedido'));
+        return view('pedidoEdit', compact('regioes','tipos_sanguineos','pedido'));
+    }
+
+    public function delete(Pedido $pedido, Request $request)      
+    {
+        $pedido->delete();
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Pedido removido com sucesso');
+
+        return redirect()->back();
+    }
+
+    public function deleted()
+    {
+        if (Auth::user()->role_id == 1) 
+        {
+            $pedidos = Pedido::onlyTrashed()->orderBy('id', 'desc')->paginate(10);
+        }
+        
+        else
+        {
+            $pedidos = Pedido::onlyTrashed()->where('user_id',Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
+        }        
+        
+        return view('lixeira', compact('pedidos'));
+    }
+
+    public function restore($pedido_id, Request $request)
+    {
+        Pedido::withTrashed()->find($pedido_id)->restore();
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Pedido recuperado com sucesso');
+
+        return redirect('/lixeira');
     }
 
     public function create()
     {
-        $estados = Estado::all();
+        $regioes = Regiao::all();
 
         $tipos_sanguineos = TipoSanguineo::all();
 
-        return view('pedidoCadastro', compact('estados','tipos_sanguineos'));
+        return view('pedidoCadastro', compact('regioes','tipos_sanguineos'));
     }
 
     public function store(Request $request)
@@ -121,12 +169,12 @@ class PedidosController extends Controller
 
     public function apiCreate()
     {
-        $estados = Estado::all();
+        $regioes = Regiao::all();
 
         $tipos_sanguineos = TipoSanguineo::all();
 
         return Response::json(array(
-            'estados' => $estados,
+            'regioes' => $regioes,
             'tipos_sanguineos' => $tipos_sanguineos
         ));
     }

@@ -50,19 +50,19 @@
                             </div> --}}
 
                             <div class="form-group row">
-                                <label for="tipo_sanguineo_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>
+                                <label for="regiao_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control{{ $errors->has('tipo_sanguineo_id') ? ' is-invalid' : '' }}" id="tipo_sanguineo_id"  name="tipo_sanguineo_id" required>
-                                        <option selected="" value="{{$user->tipo_sanguineo_id}}">{{$user->sangue->nome}}</option>
+                                    <select class="form-control{{ $errors->has('regiao_id') ? ' is-invalid' : '' }}" id="regiao_id"  name="regiao_id" required>
+                                        <option selected="" value="{{$user->regiao_id}}">{{$user->sangue->nome}}</option>
                                         @foreach ($tipos_sanguineos as $tipo)
-                                            <option value="{{$tipo->id}}" {{ (old('tipo_sanguineo_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
+                                            <option value="{{$tipo->id}}" {{ (old('regiao_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
                                         @endforeach
                                     </select>
 
-                                    @if ($errors->has('tipo_sanguineo_id'))
+                                    @if ($errors->has('regiao_id'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('tipo_sanguineo_id') }}</strong>
+                                            <strong>{{ $errors->first('regiao_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -105,6 +105,25 @@
                                     @if ($errors->has('telefone'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('telefone') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="regiao_id" class="col-md-4 col-form-label text-md-right">{{ __('Região') }}</label>
+
+                                <div class="col-md-6">
+                                    <select class="form-control{{ $errors->has('regiao_id') ? ' is-invalid' : '' }}" id="regiao_id"  name="regiao_id" required>
+                                        <option selected="" value="{{$user->regiao_id}}">{{$user->regiao->nome}}</option>
+                                        @foreach ($regioes as $regiao)
+                                            <option value="{{$regiao->id}}" {{ (old('regiao_id') == $regiao->id ? "selected":"") }}>{{$regiao->nome}}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('regiao_id'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('regiao_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>

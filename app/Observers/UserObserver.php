@@ -17,9 +17,9 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $nome = $user->getNome();
+        // $nome = $user->getNome();
 
-        Mail::to($user->email)->send(new BemVindo($nome));
+        // Mail::to($user->email)->send(new BemVindo($nome));
     }
 
     /**

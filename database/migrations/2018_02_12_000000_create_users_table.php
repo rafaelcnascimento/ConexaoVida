@@ -18,10 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('nome');
         });
 
-        Schema::create('estados', function (Blueprint $table) {
+        Schema::create('regioes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->string('sigla',2);
         });
 
         Schema::create('users', function (Blueprint $table) {
@@ -31,8 +30,8 @@ class CreateUsersTable extends Migration
             $table->boolean('recebe_email')->default(1);
             $table->string('telefone');
             $table->string('cidade');
-            $table->unsignedInteger('estado_id')->default(23);
-            $table->foreign('estado_id')->references('id')->on('estados');
+            $table->unsignedInteger('regiao_id')->default(23);
+            $table->foreign('regiao_id')->references('id')->on('regioes');
             $table->unsignedInteger('tipo_sanguineo_id');
             $table->foreign('tipo_sanguineo_id')->references('id')->on('tipos_sanguineos');
             $table->unsignedInteger('role_id')->default(2);
