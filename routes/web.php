@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/como-funciona', 'HomeController@ajuda');
+Route::get('/ajuda', 'HomeController@ajuda');
 Route::get('/sobre', 'HomeController@sobre');
 Route::get('/doacoes', 'PedidosController@index');
 Route::get('/registrar', 'UsersController@create');

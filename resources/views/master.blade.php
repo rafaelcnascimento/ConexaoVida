@@ -75,16 +75,15 @@
            <div class="container" style="margin-top: 100px; padding-bottom: 50px; background-color: white">
                @yield('content')
            </div>    
-
-           <footer class="footer text-dark">
-            
-                <center>
-                    <span>Idealizado e mantido pelos cursos de Biomedicia e de Análise e Desenvolvimento de Sistemas da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a></span>
-                </center>
-    
-                <img style="height: 60px;" src="{{ asset('img/ads.png') }}">
-
-        </footer>
+           
+           <footer class="footer">
+                <div class="container">
+                    <center>
+                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/" style="font-weight: bold;">Análise e Desenvolvimento de Sistemas</a> <img style="height: 40px;" src="{{ asset('img/ads.png') }}"> da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a>  <img style="height: 40px;" src="{{ asset('img/cnec-small.png') }}">
+                        </span>
+                     </center>
+                </div>
+            </footer>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
