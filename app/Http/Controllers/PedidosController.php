@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use App\User;
 use Auth;
 use Log;
 use App\TipoSanguineo;
@@ -15,21 +16,11 @@ class PedidosController extends Controller
 {
     public function index()
     {
-        if (!is_null(Auth::user())) 
+        if (Auth::check()) 
         {    
-            if (Auth::user()->role_id == 1) 
-            {
-              $users = User::orderBy('nome','asc')->paginate(10);
-                  
-              return view('usersListar', compact('users'));
-            } 
-
-            else
-            {
-               $pedidos = Pedido::where('regiao_id',Auth::user()->regiao_id)->orderBy('id', 'desc')->paginate(10);
+            $pedidos = Pedido::where('regiao_id',Auth::user()->regiao_id)->orderBy('id', 'desc')->paginate(10);
                    
-               return view('pedidosListarLogado', compact('pedidos'));
-            } 
+            return view('pedidosListarLogado', compact('pedidos'));
         }
         else
         {
@@ -37,6 +28,21 @@ class PedidosController extends Controller
                 
             return view('pedidosListar', compact('pedidos'));
         }
+    }
+
+    public function admin()
+    {
+        if (Auth::user()->role_id == 1) 
+        {
+            $pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
+                       
+            return view('adminPedidosListar', compact('pedidos'));
+        } 
+        
+        else
+        {
+            return redirect()->back();
+        } 
     }
 
     public function indexUser()

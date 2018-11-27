@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin')
 @section('content')
 <div class="container">
     @if(session()->has('message.level'))
@@ -6,15 +6,7 @@
         {!! session('message.content') !!}
         </div>
     @endif
-
-    <center style="margin-bottom: 50px;">
-        <a href="lixeira" >
-            <button type="submit" class="btn btn-primary custom-btn">
-                {{ __('Lixeira') }}
-            </button>
-        </a>
-    </center>
-    
+  
     <div class="table-responsive">
         <table class="ui celled table">
             <thead>

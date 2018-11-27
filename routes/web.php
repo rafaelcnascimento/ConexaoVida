@@ -29,6 +29,8 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 
 Route::group(['middleware' => 'auth'], function ()
 {
+    //Redirect depois do login
+    Route::get('/redirect', 'HomeController@redirect');
     //Rotas user
     Route::get('/meus-dados', 'UsersController@show');
     Route::get('/mudar-senha', 'UsersController@password');
@@ -36,7 +38,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/meus-dados', 'UsersController@show');
     Route::patch('/user/{user}', 'UsersController@update');
     Route::patch('/mudar-senha', 'UsersController@updatePassword');
-    //Rotas pedido
+    //Rotas pedidos
     Route::get('/meus-pedidos', 'PedidosController@indexUser');
     Route::get('/doacao-cadastrar', 'PedidosController@create');
     Route::get('/editar-doacao/{pedido}', 'PedidosController@edit');
@@ -45,6 +47,9 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('/doacao/{pedido}', 'PedidosController@update');
     Route::delete('/doacao/{pedido}', 'PedidosController@delete');
     Route::post('/recuperar/{pedido}', 'PedidosController@restore');
+    //Rotas admin
+    Route::get('/usuarios', 'UsersController@index');
+    Route::get('/adminDoacoes', 'PedidosController@admin');
 });
 
 

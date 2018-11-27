@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin')
 @section('content')
 <div class="container">
     @if(session()->has('message.level'))

@@ -80,7 +80,7 @@
                             <label for="telefone" class="col-md-4 col-form-label text-md-right">{{ __('Telefone com DDD') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" name="telefone" value="{{ old('telefone') }}" required>
+                                <input id="telefone" type="text" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" name="telefone" id="telefone" value="{{ old('telefone') }}" required>
 
                                 @if ($errors->has('telefone'))
                                     <span class="invalid-feedback" role="alert">
@@ -158,4 +158,20 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    
+    <script type="text/javascript">
+    $(window).load(function()
+    {
+       var phones = [{ "mask": "(##) ####-####"}, { "mask": "(##) #####-####"}];
+        $('#telefone').inputmask({ 
+            mask: phones, 
+            greedy: false, 
+            definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
+    });
+    </script>
+
 @endsection

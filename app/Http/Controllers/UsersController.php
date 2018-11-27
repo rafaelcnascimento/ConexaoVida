@@ -14,6 +14,19 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class UsersController extends Controller
 {
+    public function index() {
+        if (Auth::user()->role_id == 1) 
+        {
+            $users = User::orderBy('nome','asc')->paginate(10);
+              
+            return view('usersListar', compact('users'));
+        } 
+        else
+        {
+            return redirect()->back();       
+        }
+    }
+
     public function show()
     {
         $user = Auth::user();
@@ -89,7 +102,13 @@ class UsersController extends Controller
 
     protected function store(Request $request)
     {
-        $request->validate([
+        dd($request->telefone);
+
+        $dados = $request->except('password_confirmation');
+
+        $dados['telefone'] = Hash::make($request->password);
+
+        $dados->validate([
             'nome' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users',
@@ -98,8 +117,6 @@ class UsersController extends Controller
             // 'estado_id' => 'required|numeric',
             'password' => 'required|string|min:6|confirmed',
         ]);
-
-        $dados = $request->except('password_confirmation');
 
         $dados['password'] = Hash::make($request->password);
 

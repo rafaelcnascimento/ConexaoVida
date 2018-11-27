@@ -17,7 +17,7 @@
             <!-- Fixed navbar -->
             <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand" href="/"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
+                    <a class="navbar-brand" href="/adminDoacoes"><img style="height: 60px;" src="{{ asset('img/logo.png') }}"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -25,29 +25,20 @@
                         
                         <ul class="nav nav-pills d-flex flex-column flex-md-row" >
                             <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/ajuda">Como funciona</a>
+                                <a class="nav-link active" href="/usuarios">Usuários</a>
                             </li>
                             <li class="nav-item mb-2 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/doacoes">Pedidos de Doações</a>
+                                <a class="nav-link active" href="/adminDoacoes">Pedidos de Doações</a>
                             </li>
                             {{-- <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="registro">Baixe o aplicativo</a>
                             </li> --}}
                             <li class="nav-item mb-2 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/sobre">Sobre</a>
+                                <a class="nav-link active" href="/lixeira">Lixeira</a>
                             </li>
-                            @if (Auth::check())
-                                <li class="nav-item mb-2 mb-md-0 mr-3">
-                                    <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
-                                </li>
-                                <li class="nav-item mb-2 mb-md-0 mr-3">
-                                    <a class="nav-link active" href="/meus-pedidos">Meus pedidos</a>
-                                </li>
-                            @endif
                         </ul>
 
                         <div class="navbar-nav ml-auto mt-2 mt-md-0">
-                            @if (Auth::check())
                                 <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
                                     <li class="nav-item mb-2 mb-md-0 mr-3">
                                         <a class="nav-link" style="color: black" href="/meus-dados">Meus dados</a>
@@ -56,16 +47,6 @@
                                        <a class="nav-link" style="color: black;" href="/logout">Sair</a>
                                     </li>
                                 </ul>
-                            @else
-                                <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
-                                    <li class="nav-item mb-2 mb-md-0 mr-3">
-                                        <a class="nav-link active" style="color: #FFFFFF;" href="/login"> Entre</a>
-                                    </li>
-                                    <li class="nav-item mb-2 mb-md-0 mr-3">
-                                        <a class="nav-link active" style="color: #FFFFFF;" href="/registrar"> Cadastra-se</a>
-                                    </li>
-                                </ul>
-                            @endif    
                         </div>
                     </div>
                 </div>
@@ -86,9 +67,8 @@
             </footer>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        @yield('js')
     </body>
 </html>
