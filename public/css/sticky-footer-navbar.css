@@ -29,6 +29,8 @@ body {
     color: #8A0707; 
 }
 
+.pagination > .page-link,
+.pagination > .active > .page-link,
 .pagination > .active > a,
 .pagination > .active > a:focus,
 .pagination > .active > a:hover,

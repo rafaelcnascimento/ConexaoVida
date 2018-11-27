@@ -102,22 +102,20 @@ class UsersController extends Controller
 
     protected function store(Request $request)
     {
-        dd($request->telefone);
-
-        $dados = $request->except('password_confirmation');
-
-        $dados['telefone'] = Hash::make($request->password);
-
-        $dados->validate([
+        $request->validate([
             'nome' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'email' => 'required|string|email|max:255|unique:users',
-            'telefone' => 'digits_between:10,11|required',
+            'telefone' => 'required|regex:/^(\(?\d{2}\)?) ?9?\d{4}-?\d{4}$/',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
             // 'estado_id' => 'required|numeric',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
+        $dados = $request->except('password_confirmation');
+
+        $dados['telefone'] = preg_replace('/[^0-9]/', '', $request->telefone);
+       
         $dados['password'] = Hash::make($request->password);
 
         User::create($dados);
