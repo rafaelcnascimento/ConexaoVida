@@ -29,6 +29,14 @@ body {
     color: #8A0707; 
 }
 
+.btn-primary.dropdown-toggle {
+  background-color: #8A0707;
+}
+
+.show>.btn-primary.dropdown-toggle {
+  background-color: #8A0707;
+}
+
 .pagination > .page-link,
 .pagination > .active > .page-link,
 .pagination > .active > a,

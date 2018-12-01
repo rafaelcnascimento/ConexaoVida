@@ -7,6 +7,19 @@
         </div>
     @endif
 
+    <div class="d-sm-flex flex-row">
+        <div class="dropdown">
+            <button class="btn btn-primary custom-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                Região:
+            </button>
+            <div class="dropdown-menu">
+                @foreach ($regioes as $regiao)
+                        <a class="dropdown-item" href="{{ url()->current() }}?regiao={{$regiao->id}}"> {{$regiao->nome}} </a>
+                @endforeach
+            </div>
+        </div>
+    </div><br>  
+
     <div class="table-responsive">
         <table class="ui celled table">
             <thead>
