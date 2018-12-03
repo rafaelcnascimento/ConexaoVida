@@ -16,29 +16,24 @@ class PedidosController extends Controller
 {
     public function index()
     {
+        $regioes = Regiao::all();
+
         if (request('regiao')) 
         {
-            $regioes = Regiao::all();
-
-            $pedidos = Pedido::where('regiao_id', request('regiao'))->orderBy('id', 'desc')->paginate(10);
-                              
-            return view('pedidosListar', compact('pedidos','regioes'));
+            $pedidos = Pedido::where('regiao_id', request('regiao'))->orderBy('id', 'desc')->paginate(10);     
         }
 
-        // else if (Auth::check()) 
-        // {    
-        //     $pedidos = Pedido::where('regiao_id', Auth::user()->regiao_id)->orderBy('id', 'desc')->paginate(10);
-                   
-        //     return view('pedidosListarLogado', compact('pedidos'));
-        // }
+        else if (Auth::check()) 
+        {    
+            $pedidos = Pedido::where('regiao_id', Auth::user()->regiao_id)->orderBy('id', 'desc')->paginate(10);
+        }
+
         else
         {
-            $regioes = Regiao::all();
-
             $pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
-                
-            return view('pedidosListar', compact('pedidos','regioes'));
         }
+
+        return view('pedidosListar', compact('pedidos','regioes'));
     }
 
     public function admin()

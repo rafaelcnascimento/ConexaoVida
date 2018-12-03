@@ -18,7 +18,10 @@ class TipoSanguineo extends Model
         {
             $compativeis = Compatibilidade::where('receptor_id',$tipo)->pluck('doador_id');
 
-            $doadores = User::where('regiao_id',$regiao_id)->where('recebe_email',true)->whereIn('tipo_sanguineo_id',$compativeis)->get();
+            $doadores = User::where('regiao_id',$regiao_id)
+                            ->where('recebe_email',true)
+                            ->whereIn('tipo_sanguineo_id',$compativeis)
+                            ->get();
         } 
         else
         {

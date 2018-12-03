@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Compatibilidade;
 use Auth;
 
 class Pedido extends Model
@@ -27,6 +28,15 @@ class Pedido extends Model
     public function regiao()
     {
         return $this->belongsTo('App\Regiao','regiao_id');
+    }
+
+    public function doadores()
+    {
+        $sangue = $this->tipo_sanguineo_id;
+
+        $doadores = Compatibilidade::where('receptor_id',$sangue)->get();
+
+        return $doadores;
     }
 
     public function criadoPor()
