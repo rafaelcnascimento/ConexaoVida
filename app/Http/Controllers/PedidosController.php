@@ -175,7 +175,7 @@ class PedidosController extends Controller
     //Rotas da API
     public function apiIndex()
     {
-        $pedidos = Pedido::paginate(10);
+        $pedidos = Pedido::orderBy('id','desc')->paginate(10);
         
         return response()->json($pedidos, 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
     }
