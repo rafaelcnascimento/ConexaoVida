@@ -167,7 +167,7 @@ class UsersController extends Controller
         return response()->json(200);
     }
 
-    protected function apiUpdateSenha(User $user, Request $request) 
+    protected function apiUpdatePassword(User $user, Request $request) 
     {
         $user->password = Hash::make($request->password);
 
