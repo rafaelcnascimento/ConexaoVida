@@ -11,6 +11,22 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <!-- rodapé -->
         <link href="{{ asset('css/sticky-footer-navbar.css') }}" rel="stylesheet" type="text/css">
+        <!-- Matomo -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//kraft.ads.cnecsan.edu.br/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <!-- End Matomo Code -->
+
     </head>
     <body style="background-image: url({{ asset('img/novo-fundo.jpg')}});">
         <header>
@@ -79,7 +95,7 @@
            <footer class="footer">
                 <div class="container">
                     <center>
-                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/" style="font-weight: bold;">Análise e Desenvolvimento de Sistemas</a> <img style="height: 40px;" src="{{ asset('img/ads.png') }}"> da <a href="http://cnecsan.cnec.br/" style="font-weight: bold;">Faculdade CNEC Santo Ângelo</a>  <img style="height: 40px;" src="{{ asset('img/cnec-small.png') }}">
+                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/"> <img style="height: 40px;" src="{{ asset('img/logo-ads.png') }}"> </a>  da  <a href="http://cnecsan.cnec.br/" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
                         </span>
                      </center>
                 </div>

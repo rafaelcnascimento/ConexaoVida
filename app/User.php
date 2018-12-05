@@ -3,6 +3,8 @@
 namespace App;
 
 use Auth;
+use Mail;
+use App\Mail\ResetarSenha;
 use Carbon\Carbon;
 use DateInterval;
 use Illuminate\Notifications\Notifiable;
@@ -12,11 +14,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $guarded = [];
 
     protected $hidden = [
@@ -71,21 +68,11 @@ class User extends Authenticatable
         return $telefone;
     }
 
-    public function isAdmin()
+    public function sendPasswordResetNotification($token)
     {
-        $user = Auth::user();
-        
-        if (is_null($user))
-        {
-            return false;
-        }
+        $user = User::where('email',request()->email)->first();
 
-        if ($user->id == 1) 
-        {
-            return true;    
-        } else {
-            return false;
-        }
+        Mail::to($user->email)->send(new ResetarSenha($token,$user));
     }
 }
 

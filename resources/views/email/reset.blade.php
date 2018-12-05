@@ -38,20 +38,14 @@
                                     <!-- Body content -->
                                     <tr>
                                         <td class="content-cell" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; padding: 35px;">
-                                            <h1 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #2F3133; font-size: 19px; font-weight: bold; margin-top: 0; text-align: left;">Olá,{{$user->getNome()}}</h1>
+                                            <h1 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #2F3133; font-size: 19px; font-weight: bold; margin-top: 0; text-align: left;">Olá, {{$user->nome}}</h1>
                                             
-                                        
                                             <div class="table" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box;">
                                              
                                             </div>
                                             <h3 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #2F3133; font-size: 14px; font-weight: bold; margin-top: 0; text-align: left;"></h3>
-                                                   <p>Alguém precisa do seu sangue</p><br>
-                                                   <p><b>Nome do Paciente:</b> {{$pedido->paciente}}</p>
-                                                   <p><b>Hospital:</b> {{$pedido->hospital}}, <b>quarto</b> {{$pedido->quarto}}</p>
-                                                   <p><b>Endereço:</b> {{$pedido->endereco_hospital}}</p>
-                                                   <p><b>Tipo sanguíneo:</b> {{$pedido->sangue->nome}}</p>
-                                                   <p><b>Requerente:</b> {{$pedido->requerente->nome}}</p>
-                                                   <p><b>Telefone para contato:</b> {{$pedido->requerente->getFone()}}</p>
+                                           <p>Para criar uma nova senha <a href="http://www.conexaovidars.com.br/password/reset/{{$token}}">Clique aqui</a></p>
+                                           <p>Caso não tenho sido você que fez essa solicitação, ignore essa mensagem</p>
                                             <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; margin: 30px auto; padding: 0; text-align: center; width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%;">
                                                 <tr>
                                                     <td align="center" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box;">
@@ -122,6 +116,13 @@
                                                     </td>
                                                 </tr>
                                             </table>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
                                             <p style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #74787e; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;"></p>
                                            
                                             <p style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #74787e; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Atenciosamente,<br>

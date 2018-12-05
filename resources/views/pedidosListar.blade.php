@@ -38,11 +38,15 @@
                 </thead>
                 <tbody>
                 @foreach ($pedidos as $pedido)       
-                        @if($pedido->doadores()->pluck('doador_id')->contains(Auth::user()->tipo_sanguineo_id))
-                            <tr class="table-success">
-                        @else        
+                        @if(Auth::check())
+                            @if($pedido->doadores()->pluck('doador_id')->contains(Auth::user()->tipo_sanguineo_id))
+                                <tr class="table-success">
+                            @else        
+                                <tr>
+                            @endif      
+                        @else
                             <tr>
-                        @endif       
+                        @endif         
                             <td>{{$pedido->paciente}}</td> 
                             <td>{{$pedido->sangue->nome}}</td> 
                             <td nowrap="">

@@ -53,7 +53,7 @@ class PedidosController extends Controller
 
     public function indexUser()
     {
-        $pedidos = Pedido::where('user_id',Auth::user()->id)->paginate(10);
+        $pedidos = Pedido::where('user_id',Auth::user()->id)->orderBy('id','desc')->paginate(10);
         
         return view('meusPedidosListar', compact('pedidos'));
     }
@@ -143,7 +143,7 @@ class PedidosController extends Controller
         $request->session()->flash('message.level', 'success');
         $request->session()->flash('message.content', 'Pedido criado com sucesso');
 
-        return redirect('/');
+        return redirect('/meus-pedidos');
     }
 
     protected function update(Pedido $pedido, Request $request)

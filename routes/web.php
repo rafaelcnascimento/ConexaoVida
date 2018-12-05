@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/home', 'HomeController@redirect');
 Route::get('/', 'HomeController@index');
 Route::get('/ajuda', 'HomeController@ajuda');
 Route::get('/sobre', 'HomeController@sobre');
@@ -23,8 +24,8 @@ Route::post('/registrar', 'UsersController@store');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 
 
 Route::group(['middleware' => 'auth'], function ()

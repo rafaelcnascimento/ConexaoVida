@@ -18,6 +18,27 @@ body {
   background-color: white;
 }
 
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+code {
+  font-size: 80%;
+}
+/*Botão vermelho sangue*/
+.btn-primary.custom-btn {
+  background-color: #8A0707;
+  border-color: #8A0707;
+}
 
 .nav-link.active {
   background-color: #8A0707 !important;
@@ -49,25 +70,7 @@ body {
     border-color: #8A0707;
 }
 
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 60px 15px 0;
-}
-
-.footer > .container {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-code {
-  font-size: 80%;
-}
-/*Botão vermelho sangue*/
-.btn-primary.custom-btn {
-  background-color: #8A0707;
-  border-color: #8A0707;
+.responsive {
+    max-width: 100%;
+    height: auto;
 }
