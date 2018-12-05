@@ -13,6 +13,7 @@
                 Região:
             </button>
             <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url()->current() }}?regiao=todas"> Todas</a>
                 @foreach ($regioes as $regiao)
                         <a class="dropdown-item" href="{{ url()->current() }}?regiao={{$regiao->id}}"> {{$regiao->nome}} </a>
                 @endforeach
@@ -39,10 +40,12 @@
                 <tbody>
                 @foreach ($pedidos as $pedido)       
                         @if(Auth::check())
-                            @if($pedido->doadores()->pluck('doador_id')->contains(Auth::user()->tipo_sanguineo_id))
-                                <tr class="table-success">
-                            @else        
+                            @if($pedido->exclusivo)
                                 <tr>
+                            @elseif($pedido->doadores()->pluck('doador_id')->contains(Auth::user()->tipo_sanguineo_id))
+                               <tr class="table-success">
+                            @else        
+                               <tr>
                             @endif      
                         @else
                             <tr>

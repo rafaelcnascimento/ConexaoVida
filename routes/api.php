@@ -23,5 +23,6 @@ Route::group(['middleware' => 'auth:api'], function ()
     Route::post('/doacao', 'PedidosController@apiStore');
     Route::post('/user/{user}', 'UsersController@apiUpdate');
     Route::post('/mudar-senha/{user}', 'UsersController@apiUpdatePassword');
+    Route::post('/logout', 'UsersController@apiLogout');
 });
 

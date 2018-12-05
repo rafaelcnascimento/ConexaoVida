@@ -175,6 +175,17 @@ class UsersController extends Controller
 
         return response()->json(200);
     }
+
+    protected function apiLogout(Request $request) 
+    {
+        $user = User::where('email', $request->email)->first();
+
+        $user->api_token = null;
+
+        $user->save();
+
+        return response()->json(200);
+    }
 }
 
 

@@ -20,7 +20,13 @@ class PedidosController extends Controller
 
         if (request('regiao')) 
         {
-            $pedidos = Pedido::where('regiao_id', request('regiao'))->orderBy('id', 'desc')->paginate(10);     
+            if (request('regiao') == "todas") {
+                $pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
+            } 
+            else
+            {
+                $pedidos = Pedido::where('regiao_id', request('regiao'))->orderBy('id', 'desc')->paginate(10);     
+            }    
         }
 
         else if (Auth::check()) 
