@@ -11,6 +11,7 @@ use App\TipoSanguineo;
 use App\Regiao;
 use App\Jobs\EnviarEmailDoacao;
 use Response;
+use Carbon\Carbon;
 
 class PedidosController extends Controller
 {
@@ -127,7 +128,7 @@ class PedidosController extends Controller
         $request->validate([
             'paciente' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
             'hospital' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'quarto' => 'required|numeric|max:255',
+            'quarto' => 'required|numeric',
             'endereco_hospital' => 'required|string|max:255',
             'tipo_sanguineo_id' => 'required|numeric',
             'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',

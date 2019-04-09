@@ -50,19 +50,19 @@
                             </div> --}}
 
                             <div class="form-group row">
-                                <label for="regiao_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>
+                                <label for="tipo_sanguineo_id" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Sanguíneo') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control{{ $errors->has('regiao_id') ? ' is-invalid' : '' }}" id="regiao_id"  name="regiao_id" required>
-                                        <option selected="" value="{{$user->regiao_id}}">{{$user->sangue->nome}}</option>
+                                    <select class="form-control{{ $errors->has('tipo_sanguineo_id') ? ' is-invalid' : '' }}" id="tipo_sanguineo_id"  name="tipo_sanguineo_id" required>
+                                        <option selected="" value="{{$user->tipo_sanguineo_id}}">{{$user->sangue->nome}}</option>
                                         @foreach ($tipos_sanguineos as $tipo)
-                                            <option value="{{$tipo->id}}" {{ (old('regiao_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
+                                            <option value="{{$tipo->id}}" {{ (old('tipo_sanguineo_id') == $tipo->id ? "selected":"") }}>{{$tipo->nome}}</option>
                                         @endforeach
                                     </select>
 
-                                    @if ($errors->has('regiao_id'))
+                                    @if ($errors->has('tipo_sanguineo_id'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('regiao_id') }}</strong>
+                                            <strong>{{ $errors->first('tipo_sanguineo_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -174,4 +174,20 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    
+    <script type="text/javascript">
+    $(window).load(function()
+    {
+       var phones = [{ "mask": "(##) ####-####"}, { "mask": "(##) #####-####"}];
+        $('#telefone').inputmask({ 
+            mask: phones, 
+            greedy: false, 
+            definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
+    });
+    </script>
+
 @endsection

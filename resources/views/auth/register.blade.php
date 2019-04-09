@@ -173,5 +173,4 @@
             definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
     });
     </script>
-
 @endsection

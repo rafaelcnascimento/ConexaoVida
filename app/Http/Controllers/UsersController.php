@@ -81,24 +81,6 @@ class UsersController extends Controller
         }
     }
 
-    protected function update(User $user, Request $request)
-    {
-        $request->validate([
-            'nome' =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'tipo_sanguineo_id' => 'required|numeric',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-            'telefone' => 'digits_between:10,11|required',
-            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
-            // 'estado_id' => 'required|numeric',
-        ]);
-
-        $user->update($request->all());
-
-        $request->session()->flash('message.level', 'success');
-        $request->session()->flash('message.content', 'Informações modificadas com sucesso');
-
-        return redirect('/meus-dados');
-    }
 
     protected function store(Request $request)
     {
@@ -121,11 +103,34 @@ class UsersController extends Controller
         User::create($dados);
 
         $request->session()->flash('message.level', 'success');
-        $request->session()->flash('message.content', 'Conta criada com sucesso');
+        $request->session()->flash('message.content', 'Registro criado com sucesso');
 
         return redirect('/login');
     }
 
+
+    protected function update(User $user, Request $request)
+    {
+        $request->validate([
+            'nome' =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'tipo_sanguineo_id' => 'required|numeric',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            'telefone' => 'required|regex:/^(\(?\d{2}\)?) ?9?\d{4}-?\d{4}$/',
+            'cidade' => 'required|min:1|max:150|regex:/^[\pL\s\-]+$/u',
+            // 'estado_id' => 'required|numeric',
+        ]);
+
+        $dados = $request->all();
+
+        $dados['telefone'] = preg_replace('/[^0-9]/', '', $request->telefone);
+        
+        $user->update($dados);
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Informações modificadas com sucesso');
+
+        return redirect('/meus-dados');
+    }
     //Funcões API
     protected function validateLogin(Request $request)
     {

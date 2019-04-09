@@ -66,7 +66,7 @@
                             @if (Auth::check())
                                 <ul class="nav nav-pills d-flex flex-column flex-md-row" style="color: #FFFFFF">
                                     <li class="nav-item mb-2 mb-md-0 mr-3">
-                                        <a class="nav-link" style="color: black" href="/meus-dados">Meus dados</a>
+                                        <a class="nav-link" style="color: black" href="/meus-dados">Olá, {{strtok(Auth::user()->nome, " ")}}</a>
                                     </li>
                                     <li class="nav-item mb-2 mb-md-0 mr-3">
                                        <a class="nav-link" style="color: black;" href="/logout">Sair</a>

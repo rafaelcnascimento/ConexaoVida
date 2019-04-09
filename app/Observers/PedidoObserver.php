@@ -21,7 +21,7 @@ class PedidoObserver
 
         foreach ($doadores as $doador)
         {
-            Mail::to($doador->email)->send(new EmailPedido($pedido, $doador));
+            Mail::to($doador->email)->queue(new EmailPedido($pedido, $doador));
         }
     }
 

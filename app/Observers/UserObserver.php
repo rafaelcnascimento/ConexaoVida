@@ -19,7 +19,7 @@ class UserObserver
     {
         $nome = $user->getNome();
 
-        Mail::to($user->email)->send(new BemVindo($nome));
+        Mail::to($user->email)->queue(new BemVindo($nome));
     }
 
     /**
