@@ -1,5 +1,4 @@
-@extends('master')
-
+@extends( Auth::user()->role_id == 1  ?  'admin' : 'master' )
 @section('content')
 
 <div class="container">

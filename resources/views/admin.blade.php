@@ -36,6 +36,12 @@
                             <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/lixeira">Lixeira</a>
                             </li>
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
+                                <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
+                            </li>
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
+                                <a class="nav-link active" href="/meus-pedidos">Meus pedidos</a>
+                            </li>
                         </ul>
 
                         <div class="navbar-nav ml-auto mt-2 mt-md-0">
