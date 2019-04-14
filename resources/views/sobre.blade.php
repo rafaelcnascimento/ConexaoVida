@@ -4,7 +4,7 @@
 <center>
     <img width = "200px" src="{{ asset('img/cnec.png') }}" class="responsive">
     <img width = "200px" src="{{ asset('img/logo-ads.png') }}" class="responsive">
-    <img width = "100px" position: "absolute" left="60px"; src="{{ asset('img/Biomedicina.png') }}" class="responsive">
+    <img width = "100px" position: absolute left="60px"; src="{{ asset('img/Biomedicina.png') }}" class="responsive">
 </center>
 
 <p> O Conexão Vida foi idealizado pelo curso de Biomedicina e desenvolvido pelo curso de Análise de Desenvolvimento de Sistemas da Faculdade CNEC Santo Ângelo, com objetivo de facilitar o processo de cadastramento e controle de doadores.</p>
@@ -12,13 +12,23 @@
 <p>Contato: conexaovida@ads.cnecsan.edu.br</p>
 <p>A equipe de trabalho foi constituída de alunos e professores da instituição, sendo estes:</p>
 
- <div style="padding-top: 70px;"></div>
+<div style="padding-top: 70px;"></div>
 
- <div class="col-sm-6 col-sm-offset-3">                
+<div class="col-sm-6 col-sm-offset-3">                
+    <img src="{{ asset('img/marilei.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
+        <div class="col-sm-0 col-sm-offset-1">
+            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Ma. Marilei Khalila Kovatli</h1>
+            <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Professora dos Cursos: Superior  de Tecnologia em Análise e Desenvolvimento de Sistemas, Administração de Empresas e Ciências Contábeis</p>     
+            <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: 1432.marileikovatli@cnec.br</p>
+            
+        </div>
+ </div>
+
+<div class="col-sm-6 col-sm-offset-3">                
     <img src="{{ asset('img/bruna.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
         <div class="col-sm-0 col-sm-offset-1">
-            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Bruna Comparsi</h1>
-                <p class="col-sm-0 col-sm-offset-2">Professor(a) nos cursos de: Biomedicina, Fisioterapia e Odontologia</p>
+            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Dra. Bruna Comparsi</h1>
+                <p class="col-sm-0 col-sm-offset-2">Professora nos cursos de: Biomedicina, Fisioterapia e Odontologia</p>
                 <p class="col-sm-0 col-sm-offset-2">Contato: brunacomparsi@gmail.com</p>
         </div>
  </div>
@@ -26,8 +36,8 @@
  <div class="col-sm-6 col-sm-offset-3">                
     <img src="{{ asset('img/felipe.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
         <div class="col-sm-0 col-sm-offset-1">
-            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Felipe Ghisleni Freitas</h1>
-                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Coordenador e Professor dos Cursos de: Administração de Empresas, Ciências Contábeis e Superior de Tecnologia em Análise e Desenvolvimento de Sistemas</p>     
+            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Me. Felipe Ghisleni Freitas</h1>
+                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Coordenador e Professor dos Cursos: Superior  de Tecnologia em Análise e Desenvolvimento de Sistemas, Administração de Empresas e Ciências Contábeis</p>     
                 <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: felipeghisleni@gmail.com</p>
         </div>
  </div>
