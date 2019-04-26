@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="/resgatar-senha"">
+                    <form method="POST" action="/resgatar-senha">
                         @csrf
 
                         <div class="form-group row">
