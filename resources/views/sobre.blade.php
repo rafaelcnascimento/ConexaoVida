@@ -14,7 +14,7 @@
 
 <div style="padding-top: 70px;"></div>
 
-<div class="col-sm-6 col-sm-offset-3">                
+{{-- <div class="col-sm-6 col-sm-offset-3">                
     <img src="{{ asset('img/marilei.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
         <div class="col-sm-0 col-sm-offset-1">
             <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Ma. Marilei Khalila Kovatli</h1>
@@ -22,7 +22,16 @@
             <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: 1432.marileikovatli@cnec.br</p>
             
         </div>
- </div>
+</div> --}}
+
+<div class="col-sm-6 col-sm-offset-3">                
+   <img src="{{ asset('img/felipe.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
+       <div class="col-sm-0 col-sm-offset-1">
+           <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Me. Felipe Ghisleni Freitas</h1>
+               <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Coordenador e Professor dos Cursos: Superior  de Tecnologia em Análise e Desenvolvimento de Sistemas, Administração de Empresas e Ciências Contábeis</p>     
+               <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: felipeghisleni@gmail.com</p>
+       </div>
+</div>
 
 <div class="col-sm-6 col-sm-offset-3">                
     <img src="{{ asset('img/bruna.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
@@ -30,24 +39,6 @@
             <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Dra. Bruna Comparsi</h1>
                 <p class="col-sm-0 col-sm-offset-2">Professora nos cursos de: Biomedicina, Fisioterapia e Odontologia</p>
                 <p class="col-sm-0 col-sm-offset-2">Contato: brunacomparsi@gmail.com</p>
-        </div>
- </div>
-
- <div class="col-sm-6 col-sm-offset-3">                
-    <img src="{{ asset('img/felipe.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
-        <div class="col-sm-0 col-sm-offset-1">
-            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Me. Felipe Ghisleni Freitas</h1>
-                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Coordenador e Professor dos Cursos: Superior  de Tecnologia em Análise e Desenvolvimento de Sistemas, Administração de Empresas e Ciências Contábeis</p>     
-                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: felipeghisleni@gmail.com</p>
-        </div>
- </div>
-
- <div class="col-sm-6 col-sm-offset-3">                
-    <img src="{{ asset('img/caroline.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
-        <div class="col-sm-0 col-sm-offset-1">
-            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Caroline Dornelles</h1>
-                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Acadêmica do curso de Biomedicina</p>
-                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: carolinedornelles5@gmail.com</p>        
         </div>
  </div>
 
@@ -77,6 +68,17 @@
                 <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: marceloabreu09@hotmail.com.br</p>        
         </div>
  </div>
+
+ <div class="col-sm-6 col-sm-offset-3">                
+    <img src="{{ asset('img/caroline.jpg') }}" style="width: 100px; float: left; border-radius: 50px;">
+        <div class="col-sm-0 col-sm-offset-1">
+            <h1 class="col-sm-0 col-sm-offset-2" style="color: #333333; font: 600 20px/35px 'Candal',sans-serif;">Caroline Dornelles</h1>
+                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Acadêmica do curso de Biomedicina</p>
+                <p style="text-align: justify;" class="col-sm-0 col-sm-offset-2">Contato: carolinedornelles5@gmail.com</p>        
+        </div>
+ </div>
+
+ 
 
 </div>
 </div>

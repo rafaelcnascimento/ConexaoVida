@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <!-- Fonte -->
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        {{-- Icones --}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <!-- rodapé -->
         <link href="{{ asset('css/sticky-footer-navbar.css') }}" rel="stylesheet" type="text/css">
         <!-- Matomo -->
@@ -40,11 +42,14 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         
                         <ul class="nav nav-pills d-flex flex-column flex-md-row" >
-                            <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
-                                <a class="nav-link active" href="/ajuda">Como funciona</a>
+                            <li class="nav-item mb-2 mb-md-0 mr-3">
+                                <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
                             </li>
                             <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/doacoes">Pedidos de Doações</a>
+                            </li>
+                            <li class="nav-item mb-2 mt-2 mt-md-0 mb-md-0 mr-3">
+                                <a class="nav-link active" href="/ajuda">Como funciona</a>
                             </li>
                             {{-- <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="registro">Baixe o aplicativo</a>
@@ -52,10 +57,8 @@
                             <li class="nav-item mb-2 mb-md-0 mr-3">
                                 <a class="nav-link active" href="/sobre">Sobre</a>
                             </li>
+                            
                             @if (Auth::check())
-                                <li class="nav-item mb-2 mb-md-0 mr-3">
-                                    <a class="nav-link active" href="/doacao-cadastrar">Pedir doação</a>
-                                </li>
                                 <li class="nav-item mb-2 mb-md-0 mr-3">
                                     <a class="nav-link active" href="/meus-pedidos">Meus pedidos</a>
                                 </li>
@@ -95,7 +98,11 @@
            <footer class="footer">
                 <div class="container">
                     <center>
-                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/"> <img style="height: 40px;" src="{{ asset('img/logo-ads.png') }}"> </a>  da  <a href="http://cnecsan.cnec.br/" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
+                        <span>Desenvolvido por acadêmicos do curso de <a href="http://educacaosuperior.cnec.br/santoangelo/cursos/graduacao/tecnologo/47/info"> <img style="height: 40px;" src="{{ asset('img/logo-ads.png') }}"> </a>  da  <a href="http://educacaosuperior.cnec.br/santoangelo" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
+                        </span>
+                        <span style="margin-left: 200px;">
+                            Compartilhe: <a href="https://api.whatsapp.com/send?text=Conheça o Conexão Vida: http://www.conexaovidars.com.br" target="_blank"><i class="fab fa-whatsapp fa-2x"  style="color:#25D366"></i></a>
+                            <a href="https://www.facebook.com/sharer.php?u=http://www.conexaovidars.com.br" target="_blank"><i class="fab fa-facebook-square fa-2x"  style="color:#3B5998"></i></a>
                         </span>
                      </center>
                 </div>
