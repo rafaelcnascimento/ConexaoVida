@@ -3,7 +3,7 @@
 
 <center>
     <img width = "200px" src="{{ asset('img/cnec.png') }}" class="responsive">
-    <img width = "200px" src="{{ asset('img/logo-ads.png') }}" class="responsive">
+    <img width = "200px" src="{{ asset('img/logo-menor.png') }}" class="responsive">
     <img width = "100px" position: absolute left="60px"; src="{{ asset('img/Biomedicina.png') }}" class="responsive">
 </center>
 

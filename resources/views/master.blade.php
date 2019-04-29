@@ -98,7 +98,7 @@
            <footer class="footer">
                 <div class="container">
                     <center>
-                        <span>Desenvolvido por acadêmicos do curso de <a href="http://educacaosuperior.cnec.br/santoangelo/cursos/graduacao/tecnologo/47/info"> <img style="height: 40px;" src="{{ asset('img/logo-ads.png') }}"> </a>  da  <a href="http://educacaosuperior.cnec.br/santoangelo" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
+                        <span>Desenvolvido por acadêmicos do curso de <a href="http://educacaosuperior.cnec.br/santoangelo/cursos/graduacao/tecnologo/47/info"> <img style="height: 40px;" src="{{ asset('img/logo-curso.png') }}"> </a>  da  <a href="http://educacaosuperior.cnec.br/santoangelo" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
                         </span>
                         <span style="margin-left: 200px;">
                             Compartilhe: <a href="https://api.whatsapp.com/send?text=Conheça o Conexão Vida: http://www.conexaovidars.com.br" target="_blank"><i class="fab fa-whatsapp fa-2x"  style="color:#25D366"></i></a>

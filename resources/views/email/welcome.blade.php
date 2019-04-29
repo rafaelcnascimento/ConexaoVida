@@ -3,6 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {{-- Icones --}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     </head>
     <body style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; background-color: #8A0707; color: #74787E; height: 100%; hyphens: auto; line-height: 1.4; margin: 0; -moz-hyphens: auto; -ms-word-break: break-all; width: 100% !important; -webkit-hyphens: auto; -webkit-text-size-adjust: none; word-break: break-word;">
         <style>
@@ -47,8 +49,13 @@
                                             <h3 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #2F3133; font-size: 14px; font-weight: bold; margin-top: 0; text-align: left;"></h3>
                                            <p>Agradeçemos a sua ajuda</p>
                                            <p>Sempre que alguém precisar do seu tipo sangúineo você receberá um email</p><br>
-                                           <p>Divulgue o Conexão Vida com seus amigos e familiares</p>
-                                           <p>Se apenas 3% da população for doadora de sangue a falta de sangue nos hemocentros seria sanada </p>
+                                           <p>Divulgue o Conexão Vida para seus amigos e familiares no Facebook ou Whatsapp</p>
+                                           <center> 
+                                                <p><a href="https://api.whatsapp.com/send?text=Conheça o Conexão Vida: http://www.conexaovidars.com.br" target="_blank"><i class="fab fa-whatsapp fa-2x"  style="color:#25D366"></i></a>
+                                                <a href="https://www.facebook.com/sharer.php?u=http://www.conexaovidars.com.br" target="_blank"><i class="fab fa-facebook-square fa-2x"  style="color:#3B5998"></i></a></p>
+                                           </center>
+
+                                           <p>Se apenas 3% da população for doadora a falta de sangue nos hemocentros será sanada </p>
                                             <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; margin: 30px auto; padding: 0; text-align: center; width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%;">
                                                 <tr>
                                                     <td align="center" style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box;">

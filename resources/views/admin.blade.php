@@ -66,7 +66,7 @@
            <footer class="footer">
                 <div class="container">
                     <center>
-                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/"> <img style="height: 40px;" src="{{ asset('img/logo-ads.png') }}"> </a>  da  <a href="http://cnecsan.cnec.br/" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
+                        <span>Desenvolvido por acadêmicos do curso de <a href="http://cnecsan.cnec.br/curso/analise-e-desenvolvimento-de-sistemas/"> <img style="height: 40px;" src="{{ asset('img/logo-curso.png') }}"> </a>  da  <a href="http://cnecsan.cnec.br/" style="font-weight: bold;"><img style="height: 40px;" src="{{asset('img/cnec.png') }}"></a>
                         </span>
                      </center>
                 </div>
