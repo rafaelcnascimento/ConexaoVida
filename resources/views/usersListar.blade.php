@@ -14,6 +14,8 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Telefone</th>
+                    <th>Região</th>
+                    <th>Cidade</th>
                     <th>Tipo Sanguíneo</th>
                 </tr>
             </thead>
@@ -23,6 +25,8 @@
                     <td>{{$user->nome}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->getFone()}}</td> 
+                    <td>{{$user->regiao->nome}}</td>
+                    <td>{{ucwords($user->cidade)}}</td>
                     <td>{{$user->sangue->nome}}</td> 
                 </tr>
             @endforeach 
